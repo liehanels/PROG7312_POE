@@ -40,6 +40,7 @@
             this.lblSubmit = new System.Windows.Forms.Label();
             this.btnSubmitForm = new System.Windows.Forms.Button();
             this.btnReturnToHome = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tblLayoutRequest.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,11 +61,12 @@
             this.tblLayoutRequest.Controls.Add(this.lblSubmit, 0, 6);
             this.tblLayoutRequest.Controls.Add(this.btnSubmitForm, 1, 6);
             this.tblLayoutRequest.Controls.Add(this.btnReturnToHome, 1, 9);
+            this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 0);
             this.tblLayoutRequest.Location = new System.Drawing.Point(13, 13);
             this.tblLayoutRequest.Name = "tblLayoutRequest";
             this.tblLayoutRequest.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tblLayoutRequest.RowCount = 10;
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -72,7 +74,7 @@
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 117F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 122F));
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
             this.tblLayoutRequest.Size = new System.Drawing.Size(789, 446);
             this.tblLayoutRequest.TabIndex = 0;
@@ -81,7 +83,7 @@
             // 
             this.lblLocation.AutoSize = true;
             this.lblLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocation.Location = new System.Drawing.Point(3, 42);
+            this.lblLocation.Location = new System.Drawing.Point(3, 37);
             this.lblLocation.Name = "lblLocation";
             this.lblLocation.Size = new System.Drawing.Size(70, 20);
             this.lblLocation.TabIndex = 0;
@@ -91,7 +93,7 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(3, 74);
+            this.lblCategory.Location = new System.Drawing.Point(3, 69);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(73, 20);
             this.lblCategory.TabIndex = 1;
@@ -101,7 +103,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(3, 108);
+            this.lblDescription.Location = new System.Drawing.Point(3, 103);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(89, 20);
             this.lblDescription.TabIndex = 2;
@@ -111,7 +113,7 @@
             // 
             this.lblAddMedia.AutoSize = true;
             this.lblAddMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddMedia.Location = new System.Drawing.Point(3, 185);
+            this.lblAddMedia.Location = new System.Drawing.Point(3, 180);
             this.lblAddMedia.Name = "lblAddMedia";
             this.lblAddMedia.Size = new System.Drawing.Size(75, 20);
             this.lblAddMedia.TabIndex = 3;
@@ -120,10 +122,11 @@
             // txtLocation
             // 
             this.txtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocation.Location = new System.Drawing.Point(109, 45);
+            this.txtLocation.Location = new System.Drawing.Point(109, 40);
             this.txtLocation.Name = "txtLocation";
             this.txtLocation.Size = new System.Drawing.Size(677, 26);
             this.txtLocation.TabIndex = 4;
+            this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
             // cmbxCategories
             // 
@@ -134,24 +137,26 @@
             "Category A",
             "Category B",
             "Category C"});
-            this.cmbxCategories.Location = new System.Drawing.Point(109, 77);
+            this.cmbxCategories.Location = new System.Drawing.Point(109, 72);
             this.cmbxCategories.Name = "cmbxCategories";
             this.cmbxCategories.Size = new System.Drawing.Size(677, 28);
             this.cmbxCategories.TabIndex = 5;
+            this.cmbxCategories.SelectedIndexChanged += new System.EventHandler(this.cmbxCategories_SelectedIndexChanged);
             // 
             // rtxtDescription
             // 
             this.rtxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtDescription.Location = new System.Drawing.Point(109, 111);
+            this.rtxtDescription.Location = new System.Drawing.Point(109, 106);
             this.rtxtDescription.Name = "rtxtDescription";
             this.rtxtDescription.Size = new System.Drawing.Size(677, 71);
             this.rtxtDescription.TabIndex = 6;
             this.rtxtDescription.Text = "";
+            this.rtxtDescription.TextChanged += new System.EventHandler(this.rtxtDescription_TextChanged);
             // 
             // btnAddFiles
             // 
             this.btnAddFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFiles.Location = new System.Drawing.Point(109, 188);
+            this.btnAddFiles.Location = new System.Drawing.Point(109, 183);
             this.btnAddFiles.Name = "btnAddFiles";
             this.btnAddFiles.Size = new System.Drawing.Size(677, 39);
             this.btnAddFiles.TabIndex = 7;
@@ -163,7 +168,7 @@
             // 
             this.lblSubmit.AutoSize = true;
             this.lblSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubmit.Location = new System.Drawing.Point(3, 230);
+            this.lblSubmit.Location = new System.Drawing.Point(3, 225);
             this.lblSubmit.Name = "lblSubmit";
             this.lblSubmit.Size = new System.Drawing.Size(100, 20);
             this.lblSubmit.TabIndex = 8;
@@ -172,7 +177,7 @@
             // btnSubmitForm
             // 
             this.btnSubmitForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitForm.Location = new System.Drawing.Point(109, 233);
+            this.btnSubmitForm.Location = new System.Drawing.Point(109, 228);
             this.btnSubmitForm.Name = "btnSubmitForm";
             this.btnSubmitForm.Size = new System.Drawing.Size(677, 39);
             this.btnSubmitForm.TabIndex = 9;
@@ -190,6 +195,13 @@
             this.btnReturnToHome.Text = "Main Menu";
             this.btnReturnToHome.UseVisualStyleBackColor = true;
             this.btnReturnToHome.Click += new System.EventHandler(this.btnReturnToHome_Click);
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(109, 3);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(676, 23);
+            this.progressBar.TabIndex = 11;
             // 
             // formReportIssue
             // 
@@ -220,5 +232,6 @@
         private System.Windows.Forms.Label lblSubmit;
         private System.Windows.Forms.Button btnSubmitForm;
         private System.Windows.Forms.Button btnReturnToHome;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }

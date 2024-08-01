@@ -41,11 +41,15 @@
             this.btnSubmitForm = new System.Windows.Forms.Button();
             this.btnReturnToHome = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.tblLayoutRequest.SuspendLayout();
             this.SuspendLayout();
             // 
             // tblLayoutRequest
             // 
+            this.tblLayoutRequest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tblLayoutRequest.AutoSize = true;
             this.tblLayoutRequest.ColumnCount = 2;
             this.tblLayoutRequest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -61,11 +65,13 @@
             this.tblLayoutRequest.Controls.Add(this.lblSubmit, 0, 6);
             this.tblLayoutRequest.Controls.Add(this.btnSubmitForm, 1, 6);
             this.tblLayoutRequest.Controls.Add(this.btnReturnToHome, 1, 9);
-            this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 0);
+            this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 10);
+            this.tblLayoutRequest.Controls.Add(this.label1, 0, 10);
+            this.tblLayoutRequest.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tblLayoutRequest.Location = new System.Drawing.Point(13, 13);
             this.tblLayoutRequest.Name = "tblLayoutRequest";
             this.tblLayoutRequest.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tblLayoutRequest.RowCount = 10;
+            this.tblLayoutRequest.RowCount = 11;
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -74,8 +80,9 @@
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 122F));
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 71F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tblLayoutRequest.Size = new System.Drawing.Size(789, 446);
             this.tblLayoutRequest.TabIndex = 0;
             // 
@@ -188,7 +195,7 @@
             // btnReturnToHome
             // 
             this.btnReturnToHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnToHome.Location = new System.Drawing.Point(109, 395);
+            this.btnReturnToHome.Location = new System.Drawing.Point(109, 332);
             this.btnReturnToHome.Name = "btnReturnToHome";
             this.btnReturnToHome.Size = new System.Drawing.Size(677, 39);
             this.btnReturnToHome.TabIndex = 10;
@@ -198,18 +205,32 @@
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(109, 3);
+            this.progressBar.Location = new System.Drawing.Point(109, 403);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(676, 23);
+            this.progressBar.Size = new System.Drawing.Size(676, 40);
+            this.progressBar.Step = 5;
             this.progressBar.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 400);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(93, 20);
+            this.label1.TabIndex = 12;
+            this.label1.Text = " Completion";
             // 
             // formReportIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(810, 471);
             this.Controls.Add(this.tblLayoutRequest);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "formReportIssue";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "formReportIssue";
             this.tblLayoutRequest.ResumeLayout(false);
             this.tblLayoutRequest.PerformLayout();
@@ -233,5 +254,6 @@
         private System.Windows.Forms.Button btnSubmitForm;
         private System.Windows.Forms.Button btnReturnToHome;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label label1;
     }
 }

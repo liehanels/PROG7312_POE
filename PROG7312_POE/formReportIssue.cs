@@ -30,9 +30,37 @@ namespace PROG7312_POE
 
         private void btnSubmitForm_Click(object sender, EventArgs e)
         {
-            issue.setLocation(txtLocation.Text);
-            issue.setCategory(cmbxCategories.Text);
-            issue.setDescription(rtxtDescription.Text);
+            bool canSubmit = true;
+            if (txtLocation.Text.Equals(null) || txtLocation.Text.Length < 10)
+            {
+                MessageBox.Show("Insufficient information supplied for LOCATION");
+                canSubmit = false;
+            }
+            if (cmbxCategories.Text.Length < 1)
+            {
+                MessageBox.Show("Please select a CATEGORY");
+                canSubmit = false;
+            }
+            if (rtxtDescription.Text.Equals(null) || rtxtDescription.Text.Length < 20)
+            {
+                MessageBox.Show("Please supply enough information in the DESCRIPTION field");
+                canSubmit = false;
+            }
+            if (canSubmit)
+            {
+                issue.setLocation(txtLocation.Text);
+                issue.setCategory(cmbxCategories.Text);
+                issue.setDescription(rtxtDescription.Text);
+                DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
+                if(review == DialogResult.No)
+                {
+                    txtLocation.Text = "";
+                    cmbxCategories.Text = null;
+                    rtxtDescription.Text = "";
+                    progress = 0;
+                    progressBar.Value = progress;
+                }
+            }
         }
 
         private void btnAddFiles_Click(object sender, EventArgs e)

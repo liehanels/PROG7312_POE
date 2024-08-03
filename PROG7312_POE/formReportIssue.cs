@@ -20,6 +20,7 @@ namespace PROG7312_POE
         public formReportIssue()
         {
             InitializeComponent();
+            picBox.Enabled = false;
         }
 
         private void btnReturnToHome_Click(object sender, EventArgs e)
@@ -51,6 +52,8 @@ namespace PROG7312_POE
                 issue.setLocation(txtLocation.Text);
                 issue.setCategory(cmbxCategories.Text);
                 issue.setDescription(rtxtDescription.Text);
+                DbHandler dbHandler = new DbHandler();
+                dbHandler.InsertIntoDb(issue.getLocation(), issue.getCategory(), issue.getDescription(), issue.getAttachedFile());
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
@@ -59,22 +62,38 @@ namespace PROG7312_POE
                     rtxtDescription.Text = "";
                     progress = 0;
                     progressBar.Value = progress;
+                    this.Close();
                 }
             }
         }
 
         private void btnAddFiles_Click(object sender, EventArgs e)
         {
+            ofd.Filter = "Image Files|*.jpg; *.jpeg; *.png; *.dcim;";
+            //https://www.bing.com/search?q=how+to+set+max+file+size+for+open+file+dialog+in+c%23&qs=n&form=QBRE&sp=-1&ghc=2&lq=0&pq=how+to+set+max+file+size+for+open+file+dialog+in+c%23&sc=10-51&sk=&cvid=3D504ECA39434898B52B30E3A67FC2CD&ghsh=0&ghacc=0&ghpl=
+            long maxSizeInBytes = 2048 * 2048;
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
-                    var sr = new StreamReader(ofd.FileName);
-                    btnAddFiles.Text = ofd.FileName;
-                    issue.attachUserFile(ofd.FileName);
-                    if (!hasFile) { progress += 25; }
-                    hasFile = true;
-                    progressBar.Value = progress;
+                    FileInfo info = new FileInfo(ofd.FileName);
+                    if (info.Length > maxSizeInBytes)
+                    {
+                        MessageBox.Show("File exceeds size limit");
+                    }
+                    else
+                    {
+                        //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
+                        btnAddFiles.Text = ofd.FileName;
+                        Image image = new Bitmap(ofd.FileName);
+                        issue.attachUserFile(image);
+                        var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, ()=> false , IntPtr.Zero);
+                        picBox.Image = destImg;
+                        picBox.Enabled = true;
+                        if (!hasFile) { progress += 25; }
+                        hasFile = true;
+                        progressBar.Value = progress;
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -82,6 +101,11 @@ namespace PROG7312_POE
                     throw;
                 }
             }
+        }
+        private void picBox_Click(object sender, EventArgs e)
+        {
+            ViewImage viewImage = new ViewImage(issue.getAttachedFile());
+            viewImage.ShowDialog();
         }
 
         private void txtLocation_TextChanged(object sender, EventArgs e)

@@ -11,7 +11,7 @@ namespace PROG7312_POE
 {
     class DbHandler
     {
-        static string connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MunicipalityRecords;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False;";
+        static string connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MunicipalityRecords;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
         public void InsertIntoDb(string location, string category, string description, Image image)
         {
             using(SqlConnection connection = new SqlConnection(connString))
@@ -20,7 +20,7 @@ namespace PROG7312_POE
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     connection.Open();
-                    command.ExecuteReader();
+                    command.ExecuteNonQuery();
                     connection.Close();
                 }
             }

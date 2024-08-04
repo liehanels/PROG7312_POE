@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PROG7312_POE
 {
@@ -16,7 +17,8 @@ namespace PROG7312_POE
         {
             using(SqlConnection connection = new SqlConnection(connString))
             {
-                string query = $"INSERT INTO MunicipalityRecords VALUES ({location}, {category}, {description}, {image});";
+                string query = $"INSERT INTO MunicipalityRecords (location, category, description, image) VALUES ({location}, {category}, {description}, {image});";
+                MessageBox.Show(query);
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     connection.Open();

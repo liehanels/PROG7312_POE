@@ -42,11 +42,11 @@
             this.btnReturnToHome = new System.Windows.Forms.Button();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.picBox = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.picBox = new System.Windows.Forms.PictureBox();
             this.tblLayoutRequest.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tblLayoutRequest
@@ -62,19 +62,19 @@
             this.tblLayoutRequest.Controls.Add(this.txtLocation, 1, 1);
             this.tblLayoutRequest.Controls.Add(this.cmbxCategories, 1, 2);
             this.tblLayoutRequest.Controls.Add(this.rtxtDescription, 1, 3);
-            this.tblLayoutRequest.Controls.Add(this.btnAddFiles, 1, 4);
-            this.tblLayoutRequest.Controls.Add(this.lblSubmit, 0, 6);
-            this.tblLayoutRequest.Controls.Add(this.btnSubmitForm, 1, 6);
             this.tblLayoutRequest.Controls.Add(this.btnReturnToHome, 1, 9);
-            this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 10);
-            this.tblLayoutRequest.Controls.Add(this.label1, 0, 10);
-            this.tblLayoutRequest.Controls.Add(this.panel1, 1, 8);
+            this.tblLayoutRequest.Controls.Add(this.btnSubmitForm, 1, 8);
+            this.tblLayoutRequest.Controls.Add(this.panel1, 1, 6);
+            this.tblLayoutRequest.Controls.Add(this.btnAddFiles, 1, 4);
+            this.tblLayoutRequest.Controls.Add(this.lblSubmit, 0, 8);
+            this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 11);
+            this.tblLayoutRequest.Controls.Add(this.label1, 0, 11);
             this.tblLayoutRequest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblLayoutRequest.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tblLayoutRequest.Location = new System.Drawing.Point(0, 0);
             this.tblLayoutRequest.Name = "tblLayoutRequest";
             this.tblLayoutRequest.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tblLayoutRequest.RowCount = 12;
+            this.tblLayoutRequest.RowCount = 13;
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -83,11 +83,12 @@
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 215F));
             this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 52F));
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 9F));
-            this.tblLayoutRequest.Size = new System.Drawing.Size(798, 602);
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tblLayoutRequest.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 163F));
+            this.tblLayoutRequest.Size = new System.Drawing.Size(807, 625);
             this.tblLayoutRequest.TabIndex = 0;
             // 
             // lblLocation
@@ -136,7 +137,7 @@
             this.txtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLocation.Location = new System.Drawing.Point(109, 40);
             this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(686, 26);
+            this.txtLocation.Size = new System.Drawing.Size(695, 26);
             this.txtLocation.TabIndex = 4;
             this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
@@ -152,7 +153,7 @@
             "Category C"});
             this.cmbxCategories.Location = new System.Drawing.Point(109, 72);
             this.cmbxCategories.Name = "cmbxCategories";
-            this.cmbxCategories.Size = new System.Drawing.Size(686, 28);
+            this.cmbxCategories.Size = new System.Drawing.Size(695, 28);
             this.cmbxCategories.TabIndex = 5;
             this.cmbxCategories.SelectedIndexChanged += new System.EventHandler(this.cmbxCategories_SelectedIndexChanged);
             // 
@@ -162,7 +163,7 @@
             this.rtxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rtxtDescription.Location = new System.Drawing.Point(109, 106);
             this.rtxtDescription.Name = "rtxtDescription";
-            this.rtxtDescription.Size = new System.Drawing.Size(686, 71);
+            this.rtxtDescription.Size = new System.Drawing.Size(695, 71);
             this.rtxtDescription.TabIndex = 6;
             this.rtxtDescription.Text = "";
             this.rtxtDescription.TextChanged += new System.EventHandler(this.rtxtDescription_TextChanged);
@@ -173,7 +174,7 @@
             this.btnAddFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddFiles.Location = new System.Drawing.Point(109, 183);
             this.btnAddFiles.Name = "btnAddFiles";
-            this.btnAddFiles.Size = new System.Drawing.Size(686, 39);
+            this.btnAddFiles.Size = new System.Drawing.Size(695, 39);
             this.btnAddFiles.TabIndex = 7;
             this.btnAddFiles.Text = "Click to add files";
             this.btnAddFiles.UseVisualStyleBackColor = true;
@@ -183,7 +184,7 @@
             // 
             this.lblSubmit.AutoSize = true;
             this.lblSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubmit.Location = new System.Drawing.Point(3, 225);
+            this.lblSubmit.Location = new System.Drawing.Point(3, 440);
             this.lblSubmit.Name = "lblSubmit";
             this.lblSubmit.Size = new System.Drawing.Size(100, 20);
             this.lblSubmit.TabIndex = 8;
@@ -193,9 +194,9 @@
             // 
             this.btnSubmitForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmitForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitForm.Location = new System.Drawing.Point(109, 228);
+            this.btnSubmitForm.Location = new System.Drawing.Point(109, 443);
             this.btnSubmitForm.Name = "btnSubmitForm";
-            this.btnSubmitForm.Size = new System.Drawing.Size(686, 39);
+            this.btnSubmitForm.Size = new System.Drawing.Size(695, 46);
             this.btnSubmitForm.TabIndex = 9;
             this.btnSubmitForm.Text = "Submit Form";
             this.btnSubmitForm.UseVisualStyleBackColor = true;
@@ -205,9 +206,9 @@
             // 
             this.btnReturnToHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReturnToHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnToHome.Location = new System.Drawing.Point(109, 488);
+            this.btnReturnToHome.Location = new System.Drawing.Point(109, 495);
             this.btnReturnToHome.Name = "btnReturnToHome";
-            this.btnReturnToHome.Size = new System.Drawing.Size(686, 46);
+            this.btnReturnToHome.Size = new System.Drawing.Size(695, 42);
             this.btnReturnToHome.TabIndex = 10;
             this.btnReturnToHome.Text = "Main Menu";
             this.btnReturnToHome.UseVisualStyleBackColor = true;
@@ -216,9 +217,9 @@
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar.Location = new System.Drawing.Point(109, 540);
+            this.progressBar.Location = new System.Drawing.Point(109, 575);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(686, 19);
+            this.progressBar.Size = new System.Drawing.Size(695, 24);
             this.progressBar.Step = 1;
             this.progressBar.TabIndex = 11;
             // 
@@ -226,44 +227,44 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 537);
+            this.label1.Location = new System.Drawing.Point(3, 572);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(93, 20);
             this.label1.TabIndex = 12;
             this.label1.Text = " Completion";
             // 
-            // picBox
-            // 
-            this.picBox.Location = new System.Drawing.Point(236, 0);
-            this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(208, 206);
-            this.picBox.TabIndex = 13;
-            this.picBox.TabStop = false;
-            this.picBox.Click += new System.EventHandler(this.picBox_Click);
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.picBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(109, 273);
+            this.panel1.Location = new System.Drawing.Point(109, 228);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(686, 209);
+            this.panel1.Size = new System.Drawing.Size(695, 209);
             this.panel1.TabIndex = 14;
+            // 
+            // picBox
+            // 
+            this.picBox.Location = new System.Drawing.Point(209, 0);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(284, 206);
+            this.picBox.TabIndex = 13;
+            this.picBox.TabStop = false;
+            this.picBox.Click += new System.EventHandler(this.picBox_Click);
             // 
             // formReportIssue
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(798, 602);
+            this.ClientSize = new System.Drawing.Size(807, 625);
             this.Controls.Add(this.tblLayoutRequest);
             this.Name = "formReportIssue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "formReportIssue";
+            this.Text = "a";
             this.tblLayoutRequest.ResumeLayout(false);
             this.tblLayoutRequest.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

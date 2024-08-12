@@ -52,8 +52,7 @@ namespace PROG7312_POE
                 issue.setLocation(txtLocation.Text);
                 issue.setCategory(cmbxCategories.Text);
                 issue.setDescription(rtxtDescription.Text);
-                DbHandler dbHandler = new DbHandler();
-                dbHandler.InsertIntoDb(issue.getLocation(), issue.getCategory(), issue.getDescription(), issue.getAttachedFile());
+                issue.attachUserFile(picBox.Image);
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
@@ -86,7 +85,6 @@ namespace PROG7312_POE
                         //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
                         btnAddFiles.Text = ofd.FileName;
                         Image image = new Bitmap(ofd.FileName);
-                        issue.attachUserFile(image);
                         var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, ()=> false , IntPtr.Zero);
                         picBox.Image = destImg;
                         picBox.Enabled = true;
@@ -110,8 +108,14 @@ namespace PROG7312_POE
 
         private void txtLocation_TextChanged(object sender, EventArgs e)
         {
-            if (!hasLocation) { progress += 25; }
-            hasLocation = true;
+            if (!hasLocation) 
+            {
+                if(txtLocation.Text.Length <= 12) { progress += 2; }
+                else
+                {
+                    hasLocation = true;
+                }
+            }
             progressBar.Value = progress;
         }
 
@@ -124,8 +128,14 @@ namespace PROG7312_POE
 
         private void rtxtDescription_TextChanged(object sender, EventArgs e)
         {
-            if (!hasDescription) { progress += 25; }
-            hasDescription = true;
+            if (!hasDescription)
+            {
+                if (rtxtDescription.Text.Length <= 26) { progress++; }
+                else
+                {
+                    hasDescription = true;
+                }
+            }
             progressBar.Value = progress;
         }
     }

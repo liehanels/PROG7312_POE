@@ -17,14 +17,7 @@ namespace PROG7312_POE
         {
             using(SqlConnection connection = new SqlConnection(connString))
             {
-                string query = $"INSERT INTO MunicipalityRecords (location, category, description, image) VALUES ({location}, {category}, {description}, {image});";
-                MessageBox.Show(query);
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    connection.Open();
-                    command.ExecuteNonQuery();
-                    connection.Close();
-                }
+
             }
         }
     }

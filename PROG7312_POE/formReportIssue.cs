@@ -14,7 +14,8 @@ namespace PROG7312_POE
     public partial class formReportIssue : Form
     {
         OpenFileDialog ofd = new OpenFileDialog();
-        ReportedIssue issue = new ReportedIssue();
+        ReportedIssue[] issue;
+        int amountIssues = 0;
         int progress = 0;
         bool hasLocation, hasCategory, hasDescription, hasFile = false;
         public formReportIssue()
@@ -49,10 +50,11 @@ namespace PROG7312_POE
             }
             if (canSubmit)
             {
-                issue.setLocation(txtLocation.Text);
-                issue.setCategory(cmbxCategories.Text);
-                issue.setDescription(rtxtDescription.Text);
-                issue.attachUserFile(picBox.Image);
+                issue[amountIssues].setLocation(txtLocation.Text);
+                issue[amountIssues].setCategory(cmbxCategories.Text);
+                issue[amountIssues].setDescription(rtxtDescription.Text);
+                issue[amountIssues].attachUserFile(picBox.Image);
+                amountIssues++;
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
@@ -102,7 +104,7 @@ namespace PROG7312_POE
         }
         private void picBox_Click(object sender, EventArgs e)
         {
-            ViewImage viewImage = new ViewImage(issue.getAttachedFile());
+            ViewImage viewImage = new ViewImage(picBox.Image);
             viewImage.ShowDialog();
         }
 

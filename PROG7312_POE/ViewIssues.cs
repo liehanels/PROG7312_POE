@@ -16,5 +16,10 @@ namespace PROG7312_POE
         {
             InitializeComponent();
         }
+
+        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -118,7 +118,8 @@ namespace PROG7312_POE
 
         private void btnViewIssues_Click(object sender, EventArgs e)
         {
-
+            ViewIssues viewIssues = new ViewIssues();
+            viewIssues.ShowDialog();
         }
     }
 }

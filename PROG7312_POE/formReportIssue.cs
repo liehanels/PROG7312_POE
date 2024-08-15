@@ -14,10 +14,9 @@ namespace PROG7312_POE
     public partial class formReportIssue : Form
     {
         OpenFileDialog ofd = new OpenFileDialog();
-        ReportedIssue[] issue;
+        Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
         int amountIssues = 0;
         int progress = 0;
-        bool hasLocation, hasCategory, hasDescription, hasFile = false;
         public formReportIssue()
         {
             InitializeComponent();
@@ -50,11 +49,12 @@ namespace PROG7312_POE
             }
             if (canSubmit)
             {
-                issue[amountIssues].setLocation(txtLocation.Text);
-                issue[amountIssues].setCategory(cmbxCategories.Text);
-                issue[amountIssues].setDescription(rtxtDescription.Text);
-                issue[amountIssues].attachUserFile(picBox.Image);
-                amountIssues++;
+                ReportedIssue issue = new ReportedIssue();
+                issue.setLocation(txtLocation.Text);
+                issue.setCategory(cmbxCategories.Text);
+                issue.setDescription(rtxtDescription.Text);
+                issue.attachUserFile(picBox.Image);
+                issues.Add(amountIssues, issue);
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
@@ -90,9 +90,6 @@ namespace PROG7312_POE
                         var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, ()=> false , IntPtr.Zero);
                         picBox.Image = destImg;
                         picBox.Enabled = true;
-                        if (!hasFile) { progress += 25; }
-                        hasFile = true;
-                        progressBar.Value = progress;
                     }
                 }
                 catch (Exception ex)
@@ -110,35 +107,18 @@ namespace PROG7312_POE
 
         private void txtLocation_TextChanged(object sender, EventArgs e)
         {
-            if (!hasLocation) 
-            {
-                if(txtLocation.Text.Length <= 12) { progress += 2; }
-                else
-                {
-                    hasLocation = true;
-                }
-            }
+            if (txtLocation.Text.Length <= 10) { progress = txtLocation.Text.Length * 10; }
             progressBar.Value = progress;
         }
-
-        private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (!hasCategory) { progress += 25; }
-            hasCategory = true;
-            progressBar.Value = progress;
-        }
-
         private void rtxtDescription_TextChanged(object sender, EventArgs e)
         {
-            if (!hasDescription)
-            {
-                if (rtxtDescription.Text.Length <= 26) { progress++; }
-                else
-                {
-                    hasDescription = true;
-                }
-            }
+            if (rtxtDescription.Text.Length <= 20) { progress = rtxtDescription.Text.Length * 5; }
             progressBar.Value = progress;
+        }
+
+        private void btnViewIssues_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

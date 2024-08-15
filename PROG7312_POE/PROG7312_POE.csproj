@@ -78,6 +78,12 @@
     <Compile Include="ViewImage.Designer.cs">
       <DependentUpon>ViewImage.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewIssues.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewIssues.Designer.cs">
+      <DependentUpon>ViewIssues.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="formReportIssue.resx">
       <DependentUpon>formReportIssue.cs</DependentUpon>
     </EmbeddedResource>
@@ -95,6 +101,9 @@
     </Compile>
     <EmbeddedResource Include="ViewImage.resx">
       <DependentUpon>ViewImage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewIssues.resx">
+      <DependentUpon>ViewIssues.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

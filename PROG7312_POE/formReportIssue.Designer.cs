@@ -36,14 +36,15 @@
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.cmbxCategories = new System.Windows.Forms.ComboBox();
             this.rtxtDescription = new System.Windows.Forms.RichTextBox();
-            this.btnAddFiles = new System.Windows.Forms.Button();
-            this.lblSubmit = new System.Windows.Forms.Label();
-            this.btnSubmitForm = new System.Windows.Forms.Button();
             this.btnReturnToHome = new System.Windows.Forms.Button();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnSubmitForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picBox = new System.Windows.Forms.PictureBox();
+            this.btnAddFiles = new System.Windows.Forms.Button();
+            this.lblSubmit = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnViewIssues = new System.Windows.Forms.Button();
             this.tblLayoutRequest.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).BeginInit();
@@ -69,6 +70,7 @@
             this.tblLayoutRequest.Controls.Add(this.lblSubmit, 0, 8);
             this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 11);
             this.tblLayoutRequest.Controls.Add(this.label1, 0, 11);
+            this.tblLayoutRequest.Controls.Add(this.btnViewIssues, 1, 10);
             this.tblLayoutRequest.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tblLayoutRequest.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.FixedSize;
             this.tblLayoutRequest.Location = new System.Drawing.Point(0, 0);
@@ -155,7 +157,6 @@
             this.cmbxCategories.Name = "cmbxCategories";
             this.cmbxCategories.Size = new System.Drawing.Size(695, 28);
             this.cmbxCategories.TabIndex = 5;
-            this.cmbxCategories.SelectedIndexChanged += new System.EventHandler(this.cmbxCategories_SelectedIndexChanged);
             // 
             // rtxtDescription
             // 
@@ -167,6 +168,48 @@
             this.rtxtDescription.TabIndex = 6;
             this.rtxtDescription.Text = "";
             this.rtxtDescription.TextChanged += new System.EventHandler(this.rtxtDescription_TextChanged);
+            // 
+            // btnReturnToHome
+            // 
+            this.btnReturnToHome.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnReturnToHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnToHome.Location = new System.Drawing.Point(109, 495);
+            this.btnReturnToHome.Name = "btnReturnToHome";
+            this.btnReturnToHome.Size = new System.Drawing.Size(695, 42);
+            this.btnReturnToHome.TabIndex = 10;
+            this.btnReturnToHome.Text = "Main Menu";
+            this.btnReturnToHome.UseVisualStyleBackColor = true;
+            this.btnReturnToHome.Click += new System.EventHandler(this.btnReturnToHome_Click);
+            // 
+            // btnSubmitForm
+            // 
+            this.btnSubmitForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnSubmitForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSubmitForm.Location = new System.Drawing.Point(109, 443);
+            this.btnSubmitForm.Name = "btnSubmitForm";
+            this.btnSubmitForm.Size = new System.Drawing.Size(695, 46);
+            this.btnSubmitForm.TabIndex = 9;
+            this.btnSubmitForm.Text = "Submit Form";
+            this.btnSubmitForm.UseVisualStyleBackColor = true;
+            this.btnSubmitForm.Click += new System.EventHandler(this.btnSubmitForm_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.picBox);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(109, 228);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(695, 209);
+            this.panel1.TabIndex = 14;
+            // 
+            // picBox
+            // 
+            this.picBox.Location = new System.Drawing.Point(209, 0);
+            this.picBox.Name = "picBox";
+            this.picBox.Size = new System.Drawing.Size(284, 206);
+            this.picBox.TabIndex = 13;
+            this.picBox.TabStop = false;
+            this.picBox.Click += new System.EventHandler(this.picBox_Click);
             // 
             // btnAddFiles
             // 
@@ -190,30 +233,6 @@
             this.lblSubmit.TabIndex = 8;
             this.lblSubmit.Text = "Submit Form";
             // 
-            // btnSubmitForm
-            // 
-            this.btnSubmitForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSubmitForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitForm.Location = new System.Drawing.Point(109, 443);
-            this.btnSubmitForm.Name = "btnSubmitForm";
-            this.btnSubmitForm.Size = new System.Drawing.Size(695, 46);
-            this.btnSubmitForm.TabIndex = 9;
-            this.btnSubmitForm.Text = "Submit Form";
-            this.btnSubmitForm.UseVisualStyleBackColor = true;
-            this.btnSubmitForm.Click += new System.EventHandler(this.btnSubmitForm_Click);
-            // 
-            // btnReturnToHome
-            // 
-            this.btnReturnToHome.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReturnToHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnToHome.Location = new System.Drawing.Point(109, 495);
-            this.btnReturnToHome.Name = "btnReturnToHome";
-            this.btnReturnToHome.Size = new System.Drawing.Size(695, 42);
-            this.btnReturnToHome.TabIndex = 10;
-            this.btnReturnToHome.Text = "Main Menu";
-            this.btnReturnToHome.UseVisualStyleBackColor = true;
-            this.btnReturnToHome.Click += new System.EventHandler(this.btnReturnToHome_Click);
-            // 
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -233,23 +252,17 @@
             this.label1.TabIndex = 12;
             this.label1.Text = " Completion";
             // 
-            // panel1
+            // btnViewIssues
             // 
-            this.panel1.Controls.Add(this.picBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(109, 228);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 209);
-            this.panel1.TabIndex = 14;
-            // 
-            // picBox
-            // 
-            this.picBox.Location = new System.Drawing.Point(209, 0);
-            this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(284, 206);
-            this.picBox.TabIndex = 13;
-            this.picBox.TabStop = false;
-            this.picBox.Click += new System.EventHandler(this.picBox_Click);
+            this.btnViewIssues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnViewIssues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewIssues.Location = new System.Drawing.Point(109, 543);
+            this.btnViewIssues.Name = "btnViewIssues";
+            this.btnViewIssues.Size = new System.Drawing.Size(695, 26);
+            this.btnViewIssues.TabIndex = 15;
+            this.btnViewIssues.Text = "View Issues";
+            this.btnViewIssues.UseVisualStyleBackColor = true;
+            this.btnViewIssues.Click += new System.EventHandler(this.btnViewIssues_Click);
             // 
             // formReportIssue
             // 
@@ -288,5 +301,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picBox;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnViewIssues;
     }
 }

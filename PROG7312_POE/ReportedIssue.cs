@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PROG7312_POE
 {
-    internal class ReportedIssue
+    public class ReportedIssue
     {
         private string location;
         private string category;

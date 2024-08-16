@@ -55,6 +55,7 @@ namespace PROG7312_POE
                 issue.setDescription(rtxtDescription.Text);
                 issue.attachUserFile(picBox.Image);
                 issues.Add(amountIssues, issue);
+                amountIssues++;
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
@@ -63,7 +64,12 @@ namespace PROG7312_POE
                     rtxtDescription.Text = "";
                     progress = 0;
                     progressBar.Value = progress;
-                    this.Close();
+                    picBox.Image = null;
+                }
+                if(review == DialogResult.Yes)
+                {
+                    ViewIssues viewIssues = new ViewIssues(issues);
+                    viewIssues.ShowDialog();
                 }
             }
         }
@@ -85,7 +91,6 @@ namespace PROG7312_POE
                     else
                     {
                         //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
-                        btnAddFiles.Text = ofd.FileName;
                         Image image = new Bitmap(ofd.FileName);
                         var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, ()=> false , IntPtr.Zero);
                         picBox.Image = destImg;
@@ -118,7 +123,7 @@ namespace PROG7312_POE
 
         private void btnViewIssues_Click(object sender, EventArgs e)
         {
-            ViewIssues viewIssues = new ViewIssues();
+            ViewIssues viewIssues = new ViewIssues(issues);
             viewIssues.ShowDialog();
         }
     }

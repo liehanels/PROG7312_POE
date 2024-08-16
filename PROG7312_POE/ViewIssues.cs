@@ -12,9 +12,16 @@ namespace PROG7312_POE
 {
     public partial class ViewIssues : Form
     {
-        public ViewIssues()
+        public ViewIssues(Dictionary<int, ReportedIssue> issues)
         {
             InitializeComponent();
+            foreach (var issue in issues)
+            {
+                listView.Items.Add(issue.Value.getLocation());
+                listView.Items.Add(issue.Value.getCategory());
+                listView.Items.Add(issue.Value.getDescription());
+                listView.Items.Add(issue.Value.getAttachedFile());
+            }
         }
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)

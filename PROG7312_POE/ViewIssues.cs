@@ -15,16 +15,21 @@ namespace PROG7312_POE
         public ViewIssues(Dictionary<int, ReportedIssue> issues)
         {
             InitializeComponent();
+            ListView listView = new ListView();
+            listView.View = View.Details;
+            listView.Columns.Add("Location", 200, HorizontalAlignment.Center);
+            listView.Columns.Add("Category", 200, HorizontalAlignment.Center);
+            listView.Columns.Add("Description", 200, HorizontalAlignment.Center);
             foreach (var issue in issues)
             {
-                listView.Items.Add(issue.Value.getLocation());
-                listView.Items.Add(issue.Value.getCategory());
-                listView.Items.Add(issue.Value.getDescription());
-                listView.Items.Add(issue.Value.getAttachedFile());
+                ListViewItem item = new ListViewItem();
+                item.SubItems.Add(issue.Value.getLocation());
+                item.SubItems.Add(issue.Value.getCategory());
+                item.SubItems.Add(issue.Value.getDescription());
+                listView.Items.Add(item);
             }
         }
-
-        private void listView_SelectedIndexChanged(object sender, EventArgs e)
+        private void listView_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }

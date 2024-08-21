@@ -51,7 +51,6 @@
             this.listView.Size = new System.Drawing.Size(800, 450);
             this.listView.TabIndex = 0;
             this.listView.UseCompatibleStateImageBehavior = false;
-            this.listView.SelectedIndexChanged += new System.EventHandler(this.listView_SelectedIndexChanged_1);
             // 
             // ViewIssues
             // 

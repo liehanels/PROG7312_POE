@@ -273,7 +273,7 @@
             this.Controls.Add(this.tblLayoutRequest);
             this.Name = "formReportIssue";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "a";
+            this.Text = "Report Issue";
             this.tblLayoutRequest.ResumeLayout(false);
             this.tblLayoutRequest.PerformLayout();
             this.panel1.ResumeLayout(false);

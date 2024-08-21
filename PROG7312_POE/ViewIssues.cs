@@ -37,7 +37,6 @@ namespace PROG7312_POE
 
         private void listView_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Ensure listView is not null
             if (listView == null)
             {
                 MessageBox.Show("List view is not initialized.");
@@ -48,10 +47,8 @@ namespace PROG7312_POE
             {
                 ListViewItem item = listView.SelectedItems[0];
 
-                // Ensure the subitem index is correct and contains a valid integer
                 if (item.SubItems.Count > 4 && int.TryParse(item.SubItems[4].Text, out int key))
                 {
-                    // Check if the key exists in the dictionary
                     if (_issues.ContainsKey(key))
                     {
                         var attachedFile = _issues[key].getAttachedFile();

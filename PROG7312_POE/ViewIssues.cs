@@ -20,6 +20,7 @@ namespace PROG7312_POE
             _issues = issues;
             listView.View = View.Details;
             listView.Columns.Add("Image", 50, HorizontalAlignment.Center);
+            listView.Columns.Add("Has Image", 100, HorizontalAlignment.Center);
             listView.Columns.Add("Location", 150, HorizontalAlignment.Center);
             listView.Columns.Add("Category", 150, HorizontalAlignment.Center);
             listView.Columns.Add("Description", 300, HorizontalAlignment.Center);
@@ -27,6 +28,7 @@ namespace PROG7312_POE
             foreach (var issue in issues)
             {
                 ListViewItem item = new ListViewItem();
+                if (issue.Value.getAttachedFile() != null) { item.SubItems.Add("True"); } else { item.SubItems.Add("False"); }
                 item.SubItems.Add(issue.Value.getLocation());
                 item.SubItems.Add(issue.Value.getCategory());
                 item.SubItems.Add(issue.Value.getDescription());

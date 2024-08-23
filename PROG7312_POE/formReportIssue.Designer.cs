@@ -204,11 +204,14 @@
             // 
             // picBox
             // 
-            this.picBox.Location = new System.Drawing.Point(209, 0);
+            this.picBox.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.picBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picBox.Location = new System.Drawing.Point(0, 0);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(284, 206);
+            this.picBox.Size = new System.Drawing.Size(695, 209);
             this.picBox.TabIndex = 13;
             this.picBox.TabStop = false;
+            this.picBox.Tag = "";
             this.picBox.Click += new System.EventHandler(this.picBox_Click);
             // 
             // btnAddFiles
@@ -219,7 +222,7 @@
             this.btnAddFiles.Name = "btnAddFiles";
             this.btnAddFiles.Size = new System.Drawing.Size(695, 39);
             this.btnAddFiles.TabIndex = 7;
-            this.btnAddFiles.Text = "Click to add files";
+            this.btnAddFiles.Text = "Add Picture";
             this.btnAddFiles.UseVisualStyleBackColor = true;
             this.btnAddFiles.Click += new System.EventHandler(this.btnAddFiles_Click);
             // 

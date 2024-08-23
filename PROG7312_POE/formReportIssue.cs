@@ -59,16 +59,13 @@ namespace PROG7312_POE
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
-                    txtLocation.Text = "";
-                    cmbxCategories.Text = null;
-                    rtxtDescription.Text = "";
-                    progress = 0;
-                    progressBar.Value = progress;
-                    picBox.Image = null;
+                    resetForm();
                 }
                 if(review == DialogResult.Yes)
                 {
+                    resetForm();
                     ViewIssues viewIssues = new ViewIssues(issues);
+                    viewIssues.StartPosition = FormStartPosition.CenterParent;
                     viewIssues.ShowDialog();
                 }
             }
@@ -76,37 +73,48 @@ namespace PROG7312_POE
 
         private void btnAddFiles_Click(object sender, EventArgs e)
         {
-            ofd.Filter = "Image Files|*.jpg; *.jpeg; *.png; *.dcim;";
-            //https://www.bing.com/search?q=how+to+set+max+file+size+for+open+file+dialog+in+c%23&qs=n&form=QBRE&sp=-1&ghc=2&lq=0&pq=how+to+set+max+file+size+for+open+file+dialog+in+c%23&sc=10-51&sk=&cvid=3D504ECA39434898B52B30E3A67FC2CD&ghsh=0&ghacc=0&ghpl=
-            long maxSizeInBytes = 2048 * 2048;
-            if (ofd.ShowDialog() == DialogResult.OK)
+            if(picBox.Image == null)
             {
-                try
+                ofd.Filter = "Image Files|*.jpg; *.jpeg; *.png; *.dcim;";
+                //https://www.bing.com/search?q=how+to+set+max+file+size+for+open+file+dialog+in+c%23&qs=n&form=QBRE&sp=-1&ghc=2&lq=0&pq=how+to+set+max+file+size+for+open+file+dialog+in+c%23&sc=10-51&sk=&cvid=3D504ECA39434898B52B30E3A67FC2CD&ghsh=0&ghacc=0&ghpl=
+                long maxSizeInBytes = 2048 * 2048;
+                if (ofd.ShowDialog() == DialogResult.OK)
                 {
-                    FileInfo info = new FileInfo(ofd.FileName);
-                    if (info.Length > maxSizeInBytes)
+                    try
                     {
-                        MessageBox.Show("File exceeds size limit");
+                        FileInfo info = new FileInfo(ofd.FileName);
+                        if (info.Length > maxSizeInBytes)
+                        {
+                            MessageBox.Show("File exceeds size limit");
+                        }
+                        else
+                        {
+                            //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
+                            Image image = new Bitmap(ofd.FileName);
+                            //var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+                            picBox.Image = image;
+                            picBox.Enabled = true;
+                            btnAddFiles.Text = "Remove Picture";
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
-                        Image image = new Bitmap(ofd.FileName);
-                        var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, ()=> false , IntPtr.Zero);
-                        picBox.Image = destImg;
-                        picBox.Enabled = true;
+                        MessageBox.Show($"Error reading file: {ex.Message}");
+                        throw;
                     }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error reading file: {ex.Message}");
-                    throw;
-                }
+            }
+            else
+            {
+                picBox.Image = null;
+                picBox.Enabled = false;
+                btnAddFiles.Text = "Add Picture";
             }
         }
         private void picBox_Click(object sender, EventArgs e)
         {
             ViewImage viewImage = new ViewImage(picBox.Image);
+            viewImage.StartPosition = FormStartPosition.CenterParent;
             viewImage.ShowDialog();
         }
 
@@ -125,6 +133,17 @@ namespace PROG7312_POE
         {
             ViewIssues viewIssues = new ViewIssues(issues);
             viewIssues.ShowDialog();
+        }
+        private void resetForm()
+        {
+            txtLocation.Text = "";
+            cmbxCategories.Text = null;
+            rtxtDescription.Text = "";
+            progress = 0;
+            progressBar.Value = progress;
+            picBox.Enabled = false;
+            picBox.Image = null;
+            btnAddFiles.Text = "Add Picture";
         }
     }
 }

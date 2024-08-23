@@ -49,15 +49,16 @@ namespace PROG7312_POE
             {
                 ListViewItem item = listView.SelectedItems[0];
 
-                if (item.SubItems.Count > 4 && int.TryParse(item.SubItems[4].Text, out int key))
+                if (item.SubItems.Count > 5 && int.TryParse(item.SubItems[5].Text, out int key))
                 {
                     if (_issues.ContainsKey(key))
                     {
                         var attachedFile = _issues[key].getAttachedFile();
                         if (attachedFile != null)
                         {
-                            ViewImage view = new ViewImage(attachedFile);
-                            view.ShowDialog();
+                            ViewImage viewImage = new ViewImage(attachedFile);
+                            viewImage.StartPosition = FormStartPosition.CenterParent;
+                            viewImage.ShowDialog();
                         }
                         else
                         {

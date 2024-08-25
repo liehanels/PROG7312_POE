@@ -45,6 +45,7 @@
             // 
             // picBoxView
             // 
+            this.picBoxView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picBoxView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBoxView.Location = new System.Drawing.Point(0, 0);
             this.picBoxView.Name = "picBoxView";

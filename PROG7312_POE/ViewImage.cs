@@ -16,8 +16,8 @@ namespace PROG7312_POE
         {
             InitializeComponent();
             picBoxView.Image = image;
-            this.Size = image.Size;
             picBoxView.Size = image.Size;
+            this.Size = image.Size;
         }
 
         private void picBoxView_Click(object sender, EventArgs e)

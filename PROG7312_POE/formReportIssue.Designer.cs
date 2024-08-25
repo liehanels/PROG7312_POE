@@ -32,7 +32,6 @@
             this.lblLocation = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
-            this.lblAddMedia = new System.Windows.Forms.Label();
             this.txtLocation = new System.Windows.Forms.TextBox();
             this.cmbxCategories = new System.Windows.Forms.ComboBox();
             this.rtxtDescription = new System.Windows.Forms.RichTextBox();
@@ -41,7 +40,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.picBox = new System.Windows.Forms.PictureBox();
             this.btnAddFiles = new System.Windows.Forms.Button();
-            this.lblSubmit = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.btnViewIssues = new System.Windows.Forms.Button();
@@ -59,7 +57,6 @@
             this.tblLayoutRequest.Controls.Add(this.lblLocation, 0, 1);
             this.tblLayoutRequest.Controls.Add(this.lblCategory, 0, 2);
             this.tblLayoutRequest.Controls.Add(this.lblDescription, 0, 3);
-            this.tblLayoutRequest.Controls.Add(this.lblAddMedia, 0, 4);
             this.tblLayoutRequest.Controls.Add(this.txtLocation, 1, 1);
             this.tblLayoutRequest.Controls.Add(this.cmbxCategories, 1, 2);
             this.tblLayoutRequest.Controls.Add(this.rtxtDescription, 1, 3);
@@ -67,7 +64,6 @@
             this.tblLayoutRequest.Controls.Add(this.btnSubmitForm, 1, 8);
             this.tblLayoutRequest.Controls.Add(this.panel1, 1, 6);
             this.tblLayoutRequest.Controls.Add(this.btnAddFiles, 1, 4);
-            this.tblLayoutRequest.Controls.Add(this.lblSubmit, 0, 8);
             this.tblLayoutRequest.Controls.Add(this.progressBar, 1, 11);
             this.tblLayoutRequest.Controls.Add(this.label1, 0, 11);
             this.tblLayoutRequest.Controls.Add(this.btnViewIssues, 1, 10);
@@ -123,23 +119,13 @@
             this.lblDescription.TabIndex = 2;
             this.lblDescription.Text = "Description";
             // 
-            // lblAddMedia
-            // 
-            this.lblAddMedia.AutoSize = true;
-            this.lblAddMedia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAddMedia.Location = new System.Drawing.Point(3, 163);
-            this.lblAddMedia.Name = "lblAddMedia";
-            this.lblAddMedia.Size = new System.Drawing.Size(75, 20);
-            this.lblAddMedia.TabIndex = 3;
-            this.lblAddMedia.Text = "Add Files";
-            // 
             // txtLocation
             // 
             this.txtLocation.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLocation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLocation.Location = new System.Drawing.Point(109, 23);
+            this.txtLocation.Location = new System.Drawing.Point(102, 23);
             this.txtLocation.Name = "txtLocation";
-            this.txtLocation.Size = new System.Drawing.Size(695, 26);
+            this.txtLocation.Size = new System.Drawing.Size(702, 26);
             this.txtLocation.TabIndex = 4;
             this.txtLocation.TextChanged += new System.EventHandler(this.txtLocation_TextChanged);
             // 
@@ -153,18 +139,18 @@
             "Category A",
             "Category B",
             "Category C"});
-            this.cmbxCategories.Location = new System.Drawing.Point(109, 55);
+            this.cmbxCategories.Location = new System.Drawing.Point(102, 55);
             this.cmbxCategories.Name = "cmbxCategories";
-            this.cmbxCategories.Size = new System.Drawing.Size(695, 28);
+            this.cmbxCategories.Size = new System.Drawing.Size(702, 28);
             this.cmbxCategories.TabIndex = 5;
             // 
             // rtxtDescription
             // 
             this.rtxtDescription.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rtxtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rtxtDescription.Location = new System.Drawing.Point(109, 89);
+            this.rtxtDescription.Location = new System.Drawing.Point(102, 89);
             this.rtxtDescription.Name = "rtxtDescription";
-            this.rtxtDescription.Size = new System.Drawing.Size(695, 71);
+            this.rtxtDescription.Size = new System.Drawing.Size(702, 71);
             this.rtxtDescription.TabIndex = 6;
             this.rtxtDescription.Text = "";
             this.rtxtDescription.TextChanged += new System.EventHandler(this.rtxtDescription_TextChanged);
@@ -173,9 +159,9 @@
             // 
             this.btnReturnToHome.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnReturnToHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReturnToHome.Location = new System.Drawing.Point(109, 663);
+            this.btnReturnToHome.Location = new System.Drawing.Point(102, 663);
             this.btnReturnToHome.Name = "btnReturnToHome";
-            this.btnReturnToHome.Size = new System.Drawing.Size(695, 42);
+            this.btnReturnToHome.Size = new System.Drawing.Size(702, 42);
             this.btnReturnToHome.TabIndex = 10;
             this.btnReturnToHome.Text = "Main Menu";
             this.btnReturnToHome.UseVisualStyleBackColor = true;
@@ -185,9 +171,9 @@
             // 
             this.btnSubmitForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnSubmitForm.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSubmitForm.Location = new System.Drawing.Point(109, 611);
+            this.btnSubmitForm.Location = new System.Drawing.Point(102, 611);
             this.btnSubmitForm.Name = "btnSubmitForm";
-            this.btnSubmitForm.Size = new System.Drawing.Size(695, 46);
+            this.btnSubmitForm.Size = new System.Drawing.Size(702, 46);
             this.btnSubmitForm.TabIndex = 9;
             this.btnSubmitForm.Text = "Submit Form";
             this.btnSubmitForm.UseVisualStyleBackColor = true;
@@ -197,9 +183,9 @@
             // 
             this.panel1.Controls.Add(this.picBox);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(109, 211);
+            this.panel1.Location = new System.Drawing.Point(102, 211);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(695, 394);
+            this.panel1.Size = new System.Drawing.Size(702, 394);
             this.panel1.TabIndex = 14;
             // 
             // picBox
@@ -208,7 +194,7 @@
             this.picBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picBox.Location = new System.Drawing.Point(0, 0);
             this.picBox.Name = "picBox";
-            this.picBox.Size = new System.Drawing.Size(695, 394);
+            this.picBox.Size = new System.Drawing.Size(702, 394);
             this.picBox.TabIndex = 13;
             this.picBox.TabStop = false;
             this.picBox.Tag = "";
@@ -218,30 +204,20 @@
             // 
             this.btnAddFiles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnAddFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFiles.Location = new System.Drawing.Point(109, 166);
+            this.btnAddFiles.Location = new System.Drawing.Point(102, 166);
             this.btnAddFiles.Name = "btnAddFiles";
-            this.btnAddFiles.Size = new System.Drawing.Size(695, 39);
+            this.btnAddFiles.Size = new System.Drawing.Size(702, 39);
             this.btnAddFiles.TabIndex = 7;
             this.btnAddFiles.Text = "Add Picture";
             this.btnAddFiles.UseVisualStyleBackColor = true;
             this.btnAddFiles.Click += new System.EventHandler(this.btnAddFiles_Click);
             // 
-            // lblSubmit
-            // 
-            this.lblSubmit.AutoSize = true;
-            this.lblSubmit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubmit.Location = new System.Drawing.Point(3, 608);
-            this.lblSubmit.Name = "lblSubmit";
-            this.lblSubmit.Size = new System.Drawing.Size(100, 20);
-            this.lblSubmit.TabIndex = 8;
-            this.lblSubmit.Text = "Submit Form";
-            // 
             // progressBar
             // 
             this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar.Location = new System.Drawing.Point(109, 743);
+            this.progressBar.Location = new System.Drawing.Point(102, 743);
             this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(695, 24);
+            this.progressBar.Size = new System.Drawing.Size(702, 24);
             this.progressBar.Step = 1;
             this.progressBar.TabIndex = 11;
             // 
@@ -259,9 +235,9 @@
             // 
             this.btnViewIssues.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnViewIssues.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewIssues.Location = new System.Drawing.Point(109, 711);
+            this.btnViewIssues.Location = new System.Drawing.Point(102, 711);
             this.btnViewIssues.Name = "btnViewIssues";
-            this.btnViewIssues.Size = new System.Drawing.Size(695, 26);
+            this.btnViewIssues.Size = new System.Drawing.Size(702, 26);
             this.btnViewIssues.TabIndex = 15;
             this.btnViewIssues.Text = "View Issues";
             this.btnViewIssues.UseVisualStyleBackColor = true;
@@ -292,12 +268,10 @@
         private System.Windows.Forms.Label lblLocation;
         private System.Windows.Forms.Label lblCategory;
         private System.Windows.Forms.Label lblDescription;
-        private System.Windows.Forms.Label lblAddMedia;
         private System.Windows.Forms.TextBox txtLocation;
         private System.Windows.Forms.ComboBox cmbxCategories;
         private System.Windows.Forms.RichTextBox rtxtDescription;
         private System.Windows.Forms.Button btnAddFiles;
-        private System.Windows.Forms.Label lblSubmit;
         private System.Windows.Forms.Button btnSubmitForm;
         private System.Windows.Forms.Button btnReturnToHome;
         private System.Windows.Forms.ProgressBar progressBar;

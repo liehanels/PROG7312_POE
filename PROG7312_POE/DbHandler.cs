@@ -16,7 +16,6 @@ namespace PROG7312_POE
         {
             string connString = "Server=tcp:st10085345.database.windows.net,1433;Initial Catalog=POE;Persist Security Info=False;User ID=ST10085345;Password=Password123456;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
-            // Sanitize inputs by replacing single quotes with double single quotes
             string location = issue.getLocation().Replace("'", "");
             string category = issue.getCategory().Replace("'", "");
             string description = issue.getDescription().Replace("'", "");

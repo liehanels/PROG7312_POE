@@ -136,9 +136,14 @@
             this.cmbxCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxCategories.FormattingEnabled = true;
             this.cmbxCategories.Items.AddRange(new object[] {
-            "Category A",
-            "Category B",
-            "Category C"});
+            "Water",
+            "Electricity",
+            "Sanitation",
+            "Crime",
+            "Conservation",
+            "Recommendation",
+            "Disputes",
+            "Other Services"});
             this.cmbxCategories.Location = new System.Drawing.Point(102, 55);
             this.cmbxCategories.Name = "cmbxCategories";
             this.cmbxCategories.Size = new System.Drawing.Size(702, 28);

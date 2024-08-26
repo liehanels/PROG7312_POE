@@ -92,7 +92,6 @@ namespace PROG7312_POE
                         }
                         else
                         {
-                            //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
                             Image image = new Bitmap(ofd.FileName);
                             //var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero); Not using because it distorts the image
                             picBox.Image = image;

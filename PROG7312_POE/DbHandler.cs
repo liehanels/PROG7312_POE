@@ -12,13 +12,9 @@ namespace PROG7312_POE
 {
     class DbHandler
     {
-        static string connString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=MunicipalityRecords;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
         public void InsertIntoDb(string location, string category, string description, Image image)
         {
-            using(SqlConnection connection = new SqlConnection(connString))
-            {
 
-            }
         }
     }
 }

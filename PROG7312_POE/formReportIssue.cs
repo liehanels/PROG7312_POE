@@ -15,6 +15,7 @@ namespace PROG7312_POE
     {
         OpenFileDialog ofd = new OpenFileDialog();
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
+        DbHandler dbHandler = new DbHandler();
         int amountIssues = 0;
         int progress = 0;
         public formReportIssue()
@@ -55,7 +56,9 @@ namespace PROG7312_POE
                 issue.setDescription(rtxtDescription.Text);
                 issue.attachUserFile(picBox.Image);
                 issues.Add(amountIssues, issue);
+                //dbHandler.InsertIntoDb(issue);
                 amountIssues++;
+                
                 DialogResult review = MessageBox.Show("Request submitted. Would you like to view your request?","Form Submitted",MessageBoxButtons.YesNo);
                 if(review == DialogResult.No)
                 {
@@ -91,7 +94,7 @@ namespace PROG7312_POE
                         {
                             //https://www.bing.com/search?q=how+to+use+getthumbnailImage+in+c%23&qs=n&form=QBRE&sp=-1&ghc=1&lq=0&pq=how+to+use+getthumbnailimage+in+c%23&sc=11-34&sk=&cvid=CED83DA004CE4E359DAE389EE12D47FB&ghsh=0&ghacc=0&ghpl=
                             Image image = new Bitmap(ofd.FileName);
-                            //var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+                            //var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero); Not using because it distorts the image
                             picBox.Image = image;
                             picBox.Enabled = true;
                             btnAddFiles.Text = "Remove Picture";
@@ -115,6 +118,7 @@ namespace PROG7312_POE
         {
             ViewImage viewImage = new ViewImage(picBox.Image);
             viewImage.StartPosition = FormStartPosition.CenterParent;
+            viewImage.Size = picBox.Image.Size;
             viewImage.ShowDialog();
         }
 

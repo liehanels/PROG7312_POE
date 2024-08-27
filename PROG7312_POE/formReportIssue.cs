@@ -67,19 +67,20 @@ namespace PROG7312_POE
             //if canSubmit remains true will submit the information to the dictionary
             if (canSubmit)
             {
-                //creates new issue instance
+                //creates new issue instance of ReportedIssue
                 ReportedIssue issue = new ReportedIssue();
                 //adds information to new instance
                 issue.setLocation(txtLocation.Text);
                 issue.setCategory(cmbxCategories.Text);
                 issue.setDescription(rtxtDescription.Text);
-                issue.attachUserFile(picBox.Image);
+                //adds all the images
+                foreach(Image img in images)
+                {
+                    issue.attachUserFile(img);
+                }
                 //adds the instance to the dictionary
                 issues.Add(amountIssues, issue);
                 
-                //adds the instance to db (for my own enrichment)
-                //dbHandler.InsertIntoDb(issue);
-
                 //increments the amount of issues var
                 amountIssues++;
                 //asks user to if they want to view their request

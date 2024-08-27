@@ -67,7 +67,7 @@ namespace PROG7312_POE
                         var attachedFiles = _issues[key].getAttachedFiles();
                         if (attachedFiles != null)
                         {
-                            imgList imageList = new imgList(_issues[key].getAttachedFiles());
+                            imgList imageList = new imgList(attachedFiles);
                             imageList.StartPosition = FormStartPosition.CenterParent;
                             imageList.ShowDialog();
                         }

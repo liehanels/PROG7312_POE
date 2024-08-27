@@ -14,12 +14,14 @@ namespace PROG7312_POE
     {
         public ViewImage(Image image)
         {
+            //initial load
             InitializeComponent();
+            //sets the size to the image size
             picBoxView.Image = image;
             picBoxView.Size = image.Size;
             this.Size = image.Size;
         }
-
+        //allows the user to click the image to close it
         private void picBoxView_Click(object sender, EventArgs e)
         {
             this.Close();

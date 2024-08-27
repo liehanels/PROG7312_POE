@@ -148,6 +148,7 @@
             this.cmbxCategories.Name = "cmbxCategories";
             this.cmbxCategories.Size = new System.Drawing.Size(702, 28);
             this.cmbxCategories.TabIndex = 5;
+            this.cmbxCategories.SelectedIndexChanged += new System.EventHandler(this.cmbxCategories_SelectedIndexChanged);
             // 
             // rtxtDescription
             // 

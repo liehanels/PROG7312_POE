@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace PROG7312_POE
     {
         //declare global vars
         OpenFileDialog ofd = new OpenFileDialog();
+        //code attribute:
+        //Title              : 
+        //Author             : 
+        //Date               : 
+        //Version            : 
+        //Availability(link) : 
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
         DbHandler dbHandler = new DbHandler();
         int amountIssues = 0;
@@ -92,6 +99,12 @@ namespace PROG7312_POE
             //if there is no image selected
             if(picBox.Image == null)
             {
+                //code attribute:
+                //Title              : 
+                //Author             : 
+                //Date               : 
+                //Version            : 
+                //Availability(link) : 
                 //sets the explrer filter
                 ofd.Filter = "Image Files|*.jpg; *.jpeg; *.png; *.dcim;";
                 //sets the max size of an image
@@ -175,6 +188,16 @@ namespace PROG7312_POE
             picBox.Enabled = false;
             picBox.Image = null;
             btnAddFiles.Text = "Add Picture";
+        }
+
+        private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cmbxCategories.Text.Equals("Other Services"))
+            {
+                string category = Interaction.InputBox("What CATEGORY are you submitting?");
+                cmbxCategories.Items.Add(category);
+                cmbxCategories.SelectedItem = category;
+            }
         }
     }
 }

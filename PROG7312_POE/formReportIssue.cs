@@ -207,6 +207,7 @@ namespace PROG7312_POE
             progressBar.Value = progress;
             picBox.Enabled = false;
             picBox.Image = null;
+            images.Clear();
             btnAddFiles.Text = "Add Picture";
         }
 

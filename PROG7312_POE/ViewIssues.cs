@@ -35,7 +35,7 @@ namespace PROG7312_POE
             {
                 ListViewItem item = new ListViewItem();
                 //checks if image exists in current intiration
-                if (issue.Value.getAttachedFiles() != null) { item.SubItems.Add("True"); } else { item.SubItems.Add("False"); }
+                if (issue.Value.getAttachedFiles().Count > 0) { item.SubItems.Add("True"); } else { item.SubItems.Add("False"); }
                 item.SubItems.Add(issue.Value.getLocation());
                 item.SubItems.Add(issue.Value.getCategory());
                 item.SubItems.Add(issue.Value.getDescription());
@@ -65,7 +65,7 @@ namespace PROG7312_POE
                     {
                         //if file exists at position, gets it
                         var attachedFiles = _issues[key].getAttachedFiles();
-                        if (attachedFiles != null)
+                        if (attachedFiles.Count > 0)
                         {
                             imgList imageList = new imgList(attachedFiles);
                             imageList.StartPosition = FormStartPosition.CenterParent;

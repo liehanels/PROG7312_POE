@@ -23,6 +23,7 @@ namespace PROG7312_POE
         //Version            : 
         //Availability(link) : 
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
+        List<Image> images = new List<Image>();
         DbHandler dbHandler = new DbHandler();
         int amountIssues = 0;
         int progress = 0;
@@ -76,7 +77,7 @@ namespace PROG7312_POE
                 //adds the instance to the dictionary
                 issues.Add(amountIssues, issue);
                 
-                //adds the instance to db
+                //adds the instance to db (for my own enrichment)
                 //dbHandler.InsertIntoDb(issue);
 
                 //increments the amount of issues var
@@ -105,13 +106,22 @@ namespace PROG7312_POE
             if(picBox.Image == null)
             {
                 //code attribute:
-                //Title              : 
-                //Author             : 
-                //Date               : 
-                //Version            : 
-                //Availability(link) : 
-                //sets the explrer filter
+                //Title              : ImageList Class
+                //Author             : Microsoft Learn
+                //Date               : 27 Aug 2024
+                //Version            : 4.8.1
+                //Availability(link) : https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.imagelist?view=windowsdesktop-8.0
+
+                //code attribute:
+                //Title              : OpenFileDialog.Multiselect Property
+                //Author             : Microsoft Learn
+                //Date               : 27 Aug 2024
+                //Version            : 4.8.1
+                //Availability(link) : https://learn.microsoft.com/en-us/dotnet/api/system.windows.forms.openfiledialog.multiselect?view=windowsdesktop-8.0
+
+                //sets the explorer filter
                 ofd.Filter = "Image Files|*.jpg; *.jpeg; *.png; *.dcim;";
+                ofd.Multiselect = true;
                 //sets the max size of an image
                 long maxSizeInBytes = 2048 * 2048;
                 //once the user selected an image and presses okay
@@ -124,25 +134,28 @@ namespace PROG7312_POE
                         //check file size
                         if (info.Length > maxSizeInBytes)
                         {
-                            MessageBox.Show("File exceeds size limit");
+                            MessageBox.Show("Files exceeds size limit");
                         }
                         else
                         //creates a new image based on filename
                         {
-                            Image image = new Bitmap(ofd.FileName);
+                            foreach (var file in ofd.FileNames)
+                            {
+                                images.Add(new Bitmap(file));
+                            }
                             //Not using because it distorts the image
                             //var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
-                            picBox.Image = image;
+                            picBox.Image = images[0];
                             //enables the picture box to be clicked
                             picBox.Enabled = true;
                             //changes button text to remove image
-                            btnAddFiles.Text = "Remove Picture";
+                            btnAddFiles.Text = "Remove Pictures";
                         }
                     }
                     //ifi file cant be read
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Error reading file: {ex.Message}");
+                        MessageBox.Show($"Error reading files: {ex.Message}");
                     }
                 }
             }
@@ -150,19 +163,17 @@ namespace PROG7312_POE
             else
             {
                 picBox.Image = null;
+                images.Clear();
                 picBox.Enabled = false;
-                btnAddFiles.Text = "Add Picture";
+                btnAddFiles.Text = "Add Pictures";
             }
         }
         //enlarge/view picture
         private void picBox_Click(object sender, EventArgs e)
         {
-            //opens the picture in a larger view
-            ViewImage viewImage = new ViewImage(picBox.Image);
-            //centres picture box on parent
-            viewImage.StartPosition = FormStartPosition.CenterParent;
-            viewImage.Size = picBox.Image.Size;
-            viewImage.ShowDialog();
+            imgList imageList = new imgList(images);
+            imageList.StartPosition = FormStartPosition.CenterParent;
+            imageList.ShowDialog();
         }
         //checks text length and adjusts the loading bar
         private void txtLocation_TextChanged(object sender, EventArgs e)

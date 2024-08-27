@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PROG7312_POE
 {
@@ -34,7 +35,7 @@ namespace PROG7312_POE
             {
                 ListViewItem item = new ListViewItem();
                 //checks if image exists in current intiration
-                if (issue.Value.getAttachedFile() != null) { item.SubItems.Add("True"); } else { item.SubItems.Add("False"); }
+                if (issue.Value.getAttachedFiles() != null) { item.SubItems.Add("True"); } else { item.SubItems.Add("False"); }
                 item.SubItems.Add(issue.Value.getLocation());
                 item.SubItems.Add(issue.Value.getCategory());
                 item.SubItems.Add(issue.Value.getDescription());
@@ -54,7 +55,7 @@ namespace PROG7312_POE
             //checks if there are records in the listView
             if (listView.SelectedItems.Count > 0)
             {
-                //gets the first selected item
+                //gets the current selected item
                 ListViewItem item = listView.SelectedItems[0];
                 //checks if the correct column is selected to retrieve key
                 if (item.SubItems.Count > 5 && int.TryParse(item.SubItems[5].Text, out int key))
@@ -63,13 +64,12 @@ namespace PROG7312_POE
                     if (_issues.ContainsKey(key))
                     {
                         //if file exists at position, gets it
-                        var attachedFile = _issues[key].getAttachedFile();
-                        if (attachedFile != null)
+                        var attachedFiles = _issues[key].getAttachedFiles();
+                        if (attachedFiles != null)
                         {
-                            //displays the image in new view
-                            ViewImage viewImage = new ViewImage(attachedFile);
-                            viewImage.StartPosition = FormStartPosition.CenterParent;
-                            viewImage.ShowDialog();
+                            imgList imageList = new imgList(_issues[key].getAttachedFiles());
+                            imageList.StartPosition = FormStartPosition.CenterParent;
+                            imageList.ShowDialog();
                         }
                         //if no image exist display to user
                         else

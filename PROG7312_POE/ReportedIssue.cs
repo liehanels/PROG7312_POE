@@ -13,11 +13,11 @@ namespace PROG7312_POE
         private string location;
         private string category;
         private string description;
-        private Image attachedFile;
+        private List<Image> attachedFiles;
         //initializer
-        public ReportedIssue() { }
+        public ReportedIssue() { attachedFiles = new List<Image>(); }
         //set methods
-        public void attachUserFile(Image attachFile) { this.attachedFile = attachFile; }
+        public void attachUserFile(Image attachFile) { this.attachedFiles.Add(attachFile); }
         public void setLocation(string location) { this.location = location; }
         public void setCategory(string category) { this.category = category; }
         public void setDescription(string description) { this.description = description; }
@@ -25,6 +25,6 @@ namespace PROG7312_POE
         public string getLocation() { return this.location; }
         public string getCategory() { return this.category; }
         public string getDescription() { return this.description; }
-        public Image getAttachedFile() { return this.attachedFile; }
+        public List<Image> getAttachedFiles() { return this.attachedFiles; }
     }
 }

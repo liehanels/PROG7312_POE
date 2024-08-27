@@ -22,7 +22,7 @@ namespace PROG7312_POE
             //build the query
             string query = $"INSERT into reported_issues " +
                 $"(location, category, description, image) " +
-                $"VALUES ('{location}', '{category}', '{description}', '{issue.getAttachedFile()}')";
+                $"VALUES ('{location}', '{category}', '{description}', '{issue.getAttachedFiles()}')";
             
             //debugging to view query
             //MessageBox.Show(query);

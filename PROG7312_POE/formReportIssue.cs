@@ -180,12 +180,16 @@ namespace PROG7312_POE
         {
             if (txtLocation.Text.Length <= 10) { progress = txtLocation.Text.Length * 10; }
             progressBar.Value = progress;
+            //updates the label to reflect chars
+            lblLocationChars.Text = $"{10-(progress/10)} Chars";
         }
         //checks text length and adjusts the loading bar
         private void rtxtDescription_TextChanged(object sender, EventArgs e)
         {
             if (rtxtDescription.Text.Length <= 20) { progress = rtxtDescription.Text.Length * 5; }
             progressBar.Value = progress;
+            //updates the label to reflect chars
+            lblDescriptionChars.Text = $"{20 - (progress / 5)} Chars";
         }
         //viewIssues click opens the listview to view issues
         private void btnViewIssues_Click(object sender, EventArgs e)
@@ -208,11 +212,24 @@ namespace PROG7312_POE
 
         private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
+
+            //adds a new category
             if(cmbxCategories.Text.Equals("Other Services"))
             {
+                //prompts user for category
                 string category = Interaction.InputBox("What CATEGORY are you submitting?");
-                cmbxCategories.Items.Add(category);
-                cmbxCategories.SelectedItem = category;
+                //checks if a valid input is received
+                if (category.Length > 0)
+                {
+                    //adds the category
+                    cmbxCategories.Items.Add(category);
+                    cmbxCategories.SelectedItem = category;
+                }
+                else
+                {
+                    //error message if no category is entered
+                    MessageBox.Show("Please enter a valid CATEGORY", "Category");
+                }
             }
         }
     }

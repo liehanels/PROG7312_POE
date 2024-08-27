@@ -144,8 +144,8 @@ namespace PROG7312_POE
                                 images.Add(new Bitmap(file));
                             }
                             //Not using because it distorts the image
-                            //var destImg = image.GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
-                            picBox.Image = images[0];
+                            var destImg = images[0].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+                            picBox.Image = destImg;
                             //enables the picture box to be clicked
                             picBox.Enabled = true;
                             //changes button text to remove image

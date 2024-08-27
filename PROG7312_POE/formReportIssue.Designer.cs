@@ -39,11 +39,11 @@
             this.btnSubmitForm = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picBox = new System.Windows.Forms.PictureBox();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btnAddFiles = new System.Windows.Forms.Button();
             this.btnViewIssues = new System.Windows.Forms.Button();
             this.lblClickImage = new System.Windows.Forms.Label();
-            this.btnAddFiles = new System.Windows.Forms.Button();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblLocationChars = new System.Windows.Forms.Label();
             this.lblDescriptionChars = new System.Windows.Forms.Label();
             this.tblLayoutRequest.SuspendLayout();
@@ -223,26 +223,17 @@
             this.picBox.Tag = "";
             this.picBox.Click += new System.EventHandler(this.picBox_Click);
             // 
-            // progressBar
+            // btnAddFiles
             // 
-            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.progressBar.Location = new System.Drawing.Point(113, 206);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(734, 24);
-            this.progressBar.Step = 1;
-            this.progressBar.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 203);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(104, 30);
-            this.label1.TabIndex = 12;
-            this.label1.Text = " Completion";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAddFiles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAddFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddFiles.Location = new System.Drawing.Point(113, 236);
+            this.btnAddFiles.Name = "btnAddFiles";
+            this.btnAddFiles.Size = new System.Drawing.Size(734, 46);
+            this.btnAddFiles.TabIndex = 4;
+            this.btnAddFiles.Text = "Add Pictures";
+            this.btnAddFiles.UseVisualStyleBackColor = true;
+            this.btnAddFiles.Click += new System.EventHandler(this.btnAddFiles_Click);
             // 
             // btnViewIssues
             // 
@@ -269,17 +260,26 @@
             this.lblClickImage.Text = "Click on image above to display all images";
             this.lblClickImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnAddFiles
+            // progressBar
             // 
-            this.btnAddFiles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAddFiles.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddFiles.Location = new System.Drawing.Point(113, 236);
-            this.btnAddFiles.Name = "btnAddFiles";
-            this.btnAddFiles.Size = new System.Drawing.Size(734, 46);
-            this.btnAddFiles.TabIndex = 4;
-            this.btnAddFiles.Text = "Add Picture";
-            this.btnAddFiles.UseVisualStyleBackColor = true;
-            this.btnAddFiles.Click += new System.EventHandler(this.btnAddFiles_Click);
+            this.progressBar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.progressBar.Location = new System.Drawing.Point(113, 206);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(734, 24);
+            this.progressBar.Step = 1;
+            this.progressBar.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 203);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(104, 30);
+            this.label1.TabIndex = 12;
+            this.label1.Text = " Completion";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblLocationChars
             // 

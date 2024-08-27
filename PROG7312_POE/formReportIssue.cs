@@ -208,7 +208,7 @@ namespace PROG7312_POE
             picBox.Enabled = false;
             picBox.Image = null;
             images.Clear();
-            btnAddFiles.Text = "Add Picture";
+            btnAddFiles.Text = "Add Pictures";
         }
 
         private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)

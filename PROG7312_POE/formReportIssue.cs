@@ -24,7 +24,6 @@ namespace PROG7312_POE
         //Availability(link) : 
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
         List<Image> images = new List<Image>();
-        DbHandler dbHandler = new DbHandler();
         int amountIssues = 0;
         int progress = 0;
         //inital load of form

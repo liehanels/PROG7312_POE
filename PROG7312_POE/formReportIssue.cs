@@ -45,18 +45,23 @@ namespace PROG7312_POE
             bool canSubmit = true;
             if (txtLocation.Text.Equals(null) || txtLocation.Text.Length < 10)
             {
-                MessageBox.Show("Insufficient information supplied for LOCATION");
+                MessageBox.Show("Insufficient information supplied for LOCATION","Location");
                 canSubmit = false;
             }
             if (cmbxCategories.Text.Length < 1)
             {
-                MessageBox.Show("Please select a CATEGORY");
+                MessageBox.Show("Please select a CATEGORY","Category");
                 canSubmit = false;
             }
             if (rtxtDescription.Text.Equals(null) || rtxtDescription.Text.Length < 20)
             {
-                MessageBox.Show("Please supply enough information in the DESCRIPTION field");
+                MessageBox.Show("Please supply enough information in the DESCRIPTION field","Description");
                 canSubmit = false;
+            }
+            if (picBox.Image == null)
+            {
+                var result = MessageBox.Show("No IMAGE added. Are you sure you want to continue?","Image",MessageBoxButtons.YesNo);
+                if(result == DialogResult.No) { canSubmit = false; }
             }
             //if canSubmit remains true will submit the information to the dictionary
             if (canSubmit)

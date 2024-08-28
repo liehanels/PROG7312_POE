@@ -144,18 +144,8 @@ namespace PROG7312_POE
                             {
                                 images.Add(new Bitmap(file));
                             }
-                            Image destImg;
-                            //checks if 1st img is landscape or portrait
-                            if (isPortrait(images[0]))
-                            {
-                                //Sets the first image to the picture box and halfs the width of it to fit
-                                destImg = images[0].GetThumbnailImage(picBox.Width/2, picBox.Height, () => false, IntPtr.Zero);
-                            }
-                            else
-                            {
-                                //Sets the first image to the picture box
-                                destImg = images[0].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
-                            }
+                            //calls a function to set the image to the first one
+                            Image destImg = setImg(0);
                             picBox.Image = destImg;
                             //enables the picture box to be clicked
                             picBox.Enabled = true;
@@ -186,11 +176,13 @@ namespace PROG7312_POE
             }
         }
         //enlarge/view picture
+        int c = 0;
         private void picBox_Click(object sender, EventArgs e)
         {
-            imgList imageList = new imgList(images);
-            imageList.StartPosition = FormStartPosition.CenterParent;
-            imageList.ShowDialog();
+            //cycles through the images
+            if(c == images.Count - 1) { c = 0 ; }
+            else { c++; }
+            picBox.Image = setImg(c);
         }
         //checks text length and adjusts the loading bar
         private void txtLocation_TextChanged(object sender, EventArgs e)
@@ -241,6 +233,22 @@ namespace PROG7312_POE
             {
                 return true;
             }
+        }
+        private Image setImg(int i)
+        {
+            Image destImg;
+            //checks if 1st img is landscape or portrait
+            if (isPortrait(images[i]))
+            {
+                //Sets the first image to the picture box and halfs the width of it to fit
+                destImg = images[i].GetThumbnailImage(picBox.Width / 2, picBox.Height, () => false, IntPtr.Zero);
+            }
+            else
+            {
+                //Sets the first image to the picture box
+                destImg = images[i].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+            }
+            return destImg;
         }
 
         private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)

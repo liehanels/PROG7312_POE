@@ -72,7 +72,6 @@ namespace PROG7312_POE
 
         private void imgList_Load(object sender, EventArgs e)
         {
-            BackColor = Color.AliceBlue;
         }
     }
 }

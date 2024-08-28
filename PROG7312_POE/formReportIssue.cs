@@ -144,8 +144,18 @@ namespace PROG7312_POE
                             {
                                 images.Add(new Bitmap(file));
                             }
-                            //Sets the first image to the picture box
-                            var destImg = images[0].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+                            Image destImg;
+                            //checks if 1st img is landscape or portrait
+                            if (isPortrait(images[0]))
+                            {
+                                //Sets the first image to the picture box and halfs the width of it to fit
+                                destImg = images[0].GetThumbnailImage(picBox.Width/2, picBox.Height, () => false, IntPtr.Zero);
+                            }
+                            else
+                            {
+                                //Sets the first image to the picture box
+                                destImg = images[0].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+                            }
                             picBox.Image = destImg;
                             //enables the picture box to be clicked
                             picBox.Enabled = true;
@@ -161,14 +171,18 @@ namespace PROG7312_POE
                     }
                 }
             }
-            //if there is an image loaded, removes it and resets the button
+            //if there is an image loaded, asks user whether to remove it and resets the button
             else
             {
-                picBox.Image = null;
-                images.Clear();
-                picBox.Enabled = false;
-                btnAddFiles.Text = "Add Pictures";
-                lblClickImage.Visible = false;
+                var result = MessageBox.Show("Are you sure you want to remove all the selected images?","Remove Images",MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    picBox.Image = null;
+                    images.Clear();
+                    picBox.Enabled = false;
+                    btnAddFiles.Text = "Add Pictures";
+                    lblClickImage.Visible = false;
+                }
             }
         }
         //enlarge/view picture
@@ -214,6 +228,19 @@ namespace PROG7312_POE
             images.Clear();
             btnAddFiles.Text = "Add Pictures";
             lblClickImage.Visible = false;
+        }
+        private bool isPortrait(Image image)
+        {
+            int width = image.Width;
+            int height = image.Height;
+            if (width > height)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)

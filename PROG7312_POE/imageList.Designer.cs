@@ -30,13 +30,15 @@
         {
             this.SuspendLayout();
             // 
-            // ListImg
+            // imgList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(798, 450);
-            this.Name = "ListImg";
+            this.Name = "imgList";
             this.Text = "List of Images";
+            this.Load += new System.EventHandler(this.imgList_Load);
             this.ResumeLayout(false);
 
         }

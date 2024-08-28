@@ -69,5 +69,10 @@ namespace PROG7312_POE
                 viewImage.ShowDialog();
             }
         }
+
+        private void imgList_Load(object sender, EventArgs e)
+        {
+            BackColor = Color.AliceBlue;
+        }
     }
 }

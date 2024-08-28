@@ -25,7 +25,8 @@ namespace PROG7312_POE
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
         List<Image> images = new List<Image>();
         int amountIssues = 0;
-        int progress = 0;
+        int lProgress = 0;
+        double dProgress = 0;
         //inital load of form
         public formReportIssue()
         {
@@ -180,18 +181,18 @@ namespace PROG7312_POE
         //checks text length and adjusts the loading bar
         private void txtLocation_TextChanged(object sender, EventArgs e)
         {
-            if (txtLocation.Text.Length <= 10) { progress = txtLocation.Text.Length * 10; }
-            progressBar.Value = progress;
+            if (txtLocation.Text.Length <= 10) { lProgress = txtLocation.Text.Length * 5; }
+            progressBar.Value = (int)dProgress + lProgress;
             //updates the label to reflect chars
-            lblLocationChars.Text = $"{10-(progress/10)} Chars";
+            lblLocationChars.Text = $"{10-(lProgress/5)} Chars";
         }
         //checks text length and adjusts the loading bar
         private void rtxtDescription_TextChanged(object sender, EventArgs e)
         {
-            if (rtxtDescription.Text.Length <= 20) { progress = rtxtDescription.Text.Length * 5; }
-            progressBar.Value = progress;
+            if (rtxtDescription.Text.Length <= 20) { dProgress = rtxtDescription.Text.Length * 2.5; }
+            progressBar.Value = (int)dProgress + lProgress;
             //updates the label to reflect chars
-            lblDescriptionChars.Text = $"{20 - (progress / 5)} Chars";
+            lblDescriptionChars.Text = $"{20 - (dProgress / 2.5)} Chars";
         }
         //viewIssues click opens the listview to view issues
         private void btnViewIssues_Click(object sender, EventArgs e)
@@ -205,8 +206,9 @@ namespace PROG7312_POE
             txtLocation.Text = "";
             cmbxCategories.Text = null;
             rtxtDescription.Text = "";
-            progress = 0;
-            progressBar.Value = progress;
+            lProgress = 0;
+            dProgress = 0;
+            progressBar.Value = 0;
             picBox.Enabled = false;
             picBox.Image = null;
             images.Clear();

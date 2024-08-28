@@ -290,7 +290,7 @@
             this.lblLocationChars.Name = "lblLocationChars";
             this.lblLocationChars.Size = new System.Drawing.Size(734, 20);
             this.lblLocationChars.TabIndex = 17;
-            this.lblLocationChars.Text = "10 Chars";
+            this.lblLocationChars.Text = "10 characters";
             // 
             // lblDescriptionChars
             // 
@@ -300,7 +300,7 @@
             this.lblDescriptionChars.Name = "lblDescriptionChars";
             this.lblDescriptionChars.Size = new System.Drawing.Size(734, 20);
             this.lblDescriptionChars.TabIndex = 18;
-            this.lblDescriptionChars.Text = "20 Chars";
+            this.lblDescriptionChars.Text = "20 characters";
             // 
             // formReportIssue
             // 

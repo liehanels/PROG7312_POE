@@ -184,7 +184,7 @@ namespace PROG7312_POE
             if (txtLocation.Text.Length <= 10) { lProgress = txtLocation.Text.Length * 5; }
             progressBar.Value = (int)dProgress + lProgress;
             //updates the label to reflect chars
-            lblLocationChars.Text = $"{10-(lProgress/5)} Chars";
+            lblLocationChars.Text = $"{10-(lProgress/5)} characters";
         }
         //checks text length and adjusts the loading bar
         private void rtxtDescription_TextChanged(object sender, EventArgs e)
@@ -192,7 +192,7 @@ namespace PROG7312_POE
             if (rtxtDescription.Text.Length <= 20) { dProgress = rtxtDescription.Text.Length * 2.5; }
             progressBar.Value = (int)dProgress + lProgress;
             //updates the label to reflect chars
-            lblDescriptionChars.Text = $"{20 - (dProgress / 2.5)} Chars";
+            lblDescriptionChars.Text = $"{20 - (dProgress / 2.5)} characters";
         }
         //viewIssues click opens the listview to view issues
         private void btnViewIssues_Click(object sender, EventArgs e)

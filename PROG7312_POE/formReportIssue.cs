@@ -143,13 +143,14 @@ namespace PROG7312_POE
                             {
                                 images.Add(new Bitmap(file));
                             }
-                            //Not using because it distorts the image
+                            //Sets the first image to the picture box
                             var destImg = images[0].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
                             picBox.Image = destImg;
                             //enables the picture box to be clicked
                             picBox.Enabled = true;
                             //changes button text to remove image
                             btnAddFiles.Text = "Remove Pictures";
+                            lblClickImage.Visible = true;
                         }
                     }
                     //ifi file cant be read
@@ -166,6 +167,7 @@ namespace PROG7312_POE
                 images.Clear();
                 picBox.Enabled = false;
                 btnAddFiles.Text = "Add Pictures";
+                lblClickImage.Visible = false;
             }
         }
         //enlarge/view picture
@@ -209,6 +211,7 @@ namespace PROG7312_POE
             picBox.Image = null;
             images.Clear();
             btnAddFiles.Text = "Add Pictures";
+            lblClickImage.Visible = false;
         }
 
         private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)

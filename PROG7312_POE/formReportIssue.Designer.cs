@@ -259,6 +259,7 @@
             this.lblClickImage.TabIndex = 16;
             this.lblClickImage.Text = "Click on image above to display all images";
             this.lblClickImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClickImage.Visible = false;
             // 
             // progressBar
             // 

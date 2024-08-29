@@ -221,32 +221,41 @@ namespace PROG7312_POE
             btnAddFiles.Text = "Add Pictures";
             lblClickImage.Visible = false;
         }
-        private bool isPortrait(Image image)
+        private int imgType(Image image)
         {
             int width = image.Width;
             int height = image.Height;
             if (width > height)
             {
-                return false;
+                return 1;
+            }
+            else if (height > width)
+            {
+                return 2;
             }
             else
             {
-                return true;
+                return 3;
             }
         }
         private Image setImg(int i)
         {
             Image destImg;
             //checks if 1st img is landscape or portrait
-            if (isPortrait(images[i]))
+            if (imgType(images[i]) == 3)
             {
                 //Sets the first image to the picture box and halfs the width of it to fit
                 destImg = images[i].GetThumbnailImage(picBox.Width / 2, picBox.Height, () => false, IntPtr.Zero);
             }
+            else if (imgType(images[i]) == 2)
+            {
+                //Sets the first image to the picture box and halfs the width of it to fit
+                destImg = images[i].GetThumbnailImage(picBox.Width / 3, picBox.Height, () => false, IntPtr.Zero);
+            }
             else
             {
                 //Sets the first image to the picture box
-                destImg = images[i].GetThumbnailImage(picBox.Width, picBox.Height, () => false, IntPtr.Zero);
+                destImg = images[i].GetThumbnailImage(picBox.Width - 100, picBox.Height, () => false, IntPtr.Zero);
             }
             return destImg;
         }

@@ -12,16 +12,16 @@ using System.Windows.Forms;
 
 namespace PROG7312_POE
 {
+    //code attribute:
+    //Title              : 
+    //Author             : 
+    //Date               : 
+    //Version            : 
+    //Availability(link) : 
     public partial class formReportIssue : Form
     {
         //declare global vars
         OpenFileDialog ofd = new OpenFileDialog();
-        //code attribute:
-        //Title              : 
-        //Author             : 
-        //Date               : 
-        //Version            : 
-        //Availability(link) : 
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
         List<Image> images = new List<Image>();
         int amountIssues = 0;

@@ -56,7 +56,6 @@
             // 
             this.tblLayoutRequest.AutoSize = true;
             this.tblLayoutRequest.BackColor = System.Drawing.Color.Transparent;
-            this.tblLayoutRequest.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("tblLayoutRequest.BackgroundImage")));
             this.tblLayoutRequest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tblLayoutRequest.ColumnCount = 2;
             this.tblLayoutRequest.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -323,7 +322,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(897, 774);
             this.Controls.Add(this.tblLayoutRequest);
             this.Name = "formReportIssue";

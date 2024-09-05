@@ -19,12 +19,13 @@ namespace PROG7312_POE
         public Event(DateTime date, DateTime time, string name, string category, string description)
         {
             this.eventDate = date;
+            this.eventTime = time;
             this.eventName = name;
             this.eventCategory = category;
             this.eventDescription = description;
         }
         //getters
-        public DateTime getEventDate() { return this.eventDate; }
+        public DateTime getEventDate() { return this.eventDate.Date; }
         public DateTime getEventTime() { return this.eventTime; }
         public string getEventName() { return this.eventName; }
         public string getEventCategory() { return this.eventCategory; }

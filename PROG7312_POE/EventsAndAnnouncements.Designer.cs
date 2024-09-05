@@ -33,11 +33,6 @@
             this.eventTab = new System.Windows.Forms.TabPage();
             this.announcementsTab = new System.Windows.Forms.TabPage();
             this.listVEvents = new System.Windows.Forms.ListView();
-            this.eventDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.eventTime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.eventName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.eventCategory = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.eventDescription = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1 = new System.Windows.Forms.Panel();
             this.eventDateTime = new System.Windows.Forms.DateTimePicker();
             this.cmbxEventCategory = new System.Windows.Forms.ComboBox();
@@ -90,12 +85,6 @@
             // listVEvents
             // 
             this.listVEvents.BackColor = System.Drawing.SystemColors.Info;
-            this.listVEvents.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.eventName,
-            this.eventDate,
-            this.eventTime,
-            this.eventCategory,
-            this.eventDescription});
             this.listVEvents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listVEvents.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listVEvents.HideSelection = false;
@@ -104,29 +93,6 @@
             this.listVEvents.Size = new System.Drawing.Size(1127, 478);
             this.listVEvents.TabIndex = 0;
             this.listVEvents.UseCompatibleStateImageBehavior = false;
-            // 
-            // eventDate
-            // 
-            this.eventDate.DisplayIndex = 0;
-            this.eventDate.Text = "Event Date";
-            // 
-            // eventTime
-            // 
-            this.eventTime.DisplayIndex = 1;
-            this.eventTime.Text = "Event Time";
-            // 
-            // eventName
-            // 
-            this.eventName.DisplayIndex = 2;
-            this.eventName.Text = "Event Name";
-            // 
-            // eventCategory
-            // 
-            this.eventCategory.Text = "Event Category";
-            // 
-            // eventDescription
-            // 
-            this.eventDescription.Text = "Event Description";
             // 
             // panel1
             // 
@@ -221,11 +187,6 @@
         private System.Windows.Forms.TabPage eventTab;
         private System.Windows.Forms.TabPage announcementsTab;
         private System.Windows.Forms.ListView listVEvents;
-        private System.Windows.Forms.ColumnHeader eventName;
-        private System.Windows.Forms.ColumnHeader eventDate;
-        private System.Windows.Forms.ColumnHeader eventTime;
-        private System.Windows.Forms.ColumnHeader eventCategory;
-        private System.Windows.Forms.ColumnHeader eventDescription;
         private System.Windows.Forms.DateTimePicker eventDateTime;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnEventFilter;

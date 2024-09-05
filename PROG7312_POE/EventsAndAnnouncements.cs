@@ -36,17 +36,25 @@ namespace PROG7312_POE
         {
             listVEvents.View = View.Details;
             listVEvents.Items.Clear();
-            foreach(var Event in Events)
+            if (listVEvents.Columns.Count == 0)
+            {
+                listVEvents.Columns.Add("", 10);
+                listVEvents.Columns.Add("Event Name", 200);
+                listVEvents.Columns.Add("Event Date", 300);
+                listVEvents.Columns.Add("Event Time", 250);
+                listVEvents.Columns.Add("Event Category", 150);
+                listVEvents.Columns.Add("Event Description", 250);
+            }
+            foreach (var Event in Events)
             {
                 ListViewItem item = new ListViewItem();
-                item.SubItems.Add("");
                 item.SubItems.Add(Event.Value.getEventName());
-                item.SubItems.Add(Event.Value.getEventDate() + "");
-                item.SubItems.Add(Event.Value.getEventTime() + "");
+                item.SubItems.Add(Event.Value.getEventDate().Date.ToLongDateString());
+                item.SubItems.Add(Event.Value.getEventTime().TimeOfDay + "");
                 item.SubItems.Add(Event.Value.getEventCategory());
                 item.SubItems.Add(Event.Value.getEventDescription());
                 listVEvents.Items.Add(item);
-        }
+            }
         }
 
         private void btnAddEvent_Click(object sender, EventArgs e)

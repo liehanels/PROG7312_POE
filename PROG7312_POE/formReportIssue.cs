@@ -25,7 +25,7 @@ namespace PROG7312_POE
         Dictionary<int,ReportedIssue> issues = new Dictionary<int,ReportedIssue>();
         List<Image> images = new List<Image>();
         int amountIssues = 0;
-        int lProgress = 0;
+        int lProgress, cProgress, iProgress = 0;
         double dProgress = 0;
         //inital load of form
         public formReportIssue()
@@ -152,6 +152,8 @@ namespace PROG7312_POE
                             //changes button text to remove image
                             btnAddFiles.Text = "Remove Pictures";
                             lblClickImage.Visible = true;
+                            iProgress = 5;
+                            progressBar.Value = (int)dProgress + lProgress + cProgress + iProgress;
                         }
                     }
                     //ifi file cant be read
@@ -188,17 +190,17 @@ namespace PROG7312_POE
         private void txtLocation_TextChanged(object sender, EventArgs e)
         {
             if (txtLocation.Text.Length <= 10) { lProgress = txtLocation.Text.Length * 5; }
-            progressBar.Value = (int)dProgress + lProgress;
+            progressBar.Value = (int)dProgress + lProgress + cProgress + iProgress;
             //updates the label to reflect chars
             lblLocationChars.Text = $"{10-(lProgress/5)} characters";
         }
         //checks text length and adjusts the loading bar
         private void rtxtDescription_TextChanged(object sender, EventArgs e)
         {
-            if (rtxtDescription.Text.Length <= 20) { dProgress = rtxtDescription.Text.Length * 2.5; }
-            progressBar.Value = (int)dProgress + lProgress;
+            if (rtxtDescription.Text.Length <= 20) { dProgress = rtxtDescription.Text.Length * 2; }
+            progressBar.Value = (int)dProgress + lProgress + cProgress + iProgress;
             //updates the label to reflect chars
-            lblDescriptionChars.Text = $"{20 - (dProgress / 2.5)} characters";
+            lblDescriptionChars.Text = $"{20 - (dProgress / 2)} characters";
         }
         //viewIssues click opens the listview to view issues
         private void btnViewIssues_Click(object sender, EventArgs e)
@@ -262,9 +264,10 @@ namespace PROG7312_POE
 
         private void cmbxCategories_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            cProgress = 5;
+            progressBar.Value = (int)dProgress + lProgress + cProgress + iProgress;
             //adds a new category
-            if(cmbxCategories.Text.Equals("Other Services"))
+            if (cmbxCategories.Text.Equals("Other Services"))
             {
                 //prompts user for category
                 string category = Interaction.InputBox("What CATEGORY are you submitting?");

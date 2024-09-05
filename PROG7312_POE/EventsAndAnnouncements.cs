@@ -22,7 +22,16 @@ namespace PROG7312_POE
             set
             {
                 Events.Add(key, value);
-                int countdownDays = Events[key].getEventDate().DayOfYear - DateTime.Now.DayOfYear;
+                //check the date values for spans that could be over a year
+                int startDate = Events[key].getEventDate().DayOfYear;
+                int nowDate = DateTime.Now.DayOfYear;
+                int countdownDays = 0;
+                if (startDate - nowDate < 0)
+                {
+                    countdownDays = (365 + (startDate - nowDate));
+                    countdownDays = countdownDays + startDate;
+                }
+                else { countdownDays = startDate - nowDate; }
                 Announcements.Push(new Announcement(countdownDays, Events[key]));
                 key++;
             }

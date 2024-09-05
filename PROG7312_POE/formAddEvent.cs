@@ -27,17 +27,36 @@ namespace PROG7312_POE
 
         private void btnSaveEvent_Click(object sender, EventArgs e)
         {
-            string eventName = txtEventName.Text;
-            DateTime eventDate = dpEventDate.Value;
-            DateTime eventTime = dpEventTime.Value;
-            string eventCategory = cmbxEventCategory.Text;
-            string eventDescription = txtEventDescription.Text;
+            //code attribute:
+            //Title              : How to handle null values in C#
+            //Author             : Joydip Kanjilal
+            //Date               : Jul 20 2023
+            //Version            : 1
+            //Availability(link) : https://www.infoworld.com/article/2338796/how-to-handle-null-values-in-c-sharp.html
+
+            //gets the form data and checks for null values
+            string eventName = txtEventName?.Text ?? string.Empty;
+            DateTime eventDate = dpEventDate?.Value ?? DateTime.MinValue;
+            DateTime eventTime = dpEventTime?.Value ?? DateTime.MinValue;
+            string eventCategory = cmbxEventCategory?.Text ?? string.Empty;
+            string eventDescription = txtEventDescription?.Text ?? string.Empty;
+            //displays an error and returns if there's null values
+            if (string.IsNullOrEmpty(eventName) || eventDate == DateTime.MinValue || eventTime == DateTime.MinValue ||
+                string.IsNullOrEmpty(eventCategory) || string.IsNullOrEmpty(eventDescription))
+            {
+                MessageBox.Show("Please fill in all the fields.");
+                return;
+            }
+            //creates a new event instance
             Event newEvent = new Event(eventDate, eventTime, eventName, eventCategory, eventDescription);
+            //creates a parent form interaction variable
             var parentForm = Application.OpenForms.OfType<formEventsAndAnnouncements>().FirstOrDefault();
+            //if the parent exists, sends the data through and informs the user
             if (parentForm != null)
             {
                 parentForm.SharedObject = newEvent;
                 MessageBox.Show("Event added!");
+                //resets the form for more data entry
                 txtEventName.Text = "";
                 txtEventDescription.Text = "";
                 cmbxEventCategory.Text = "";

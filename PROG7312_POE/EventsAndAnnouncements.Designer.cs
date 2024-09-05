@@ -87,6 +87,7 @@
             // 
             // btnAddEvent
             // 
+            this.btnAddEvent.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnAddEvent.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEvent.Location = new System.Drawing.Point(939, 599);
             this.btnAddEvent.Name = "btnAddEvent";
@@ -144,7 +145,7 @@
             // 
             // listVEvents
             // 
-            this.listVEvents.BackColor = System.Drawing.SystemColors.Info;
+            this.listVEvents.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listVEvents.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listVEvents.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listVEvents.HideSelection = false;
@@ -156,6 +157,7 @@
             // 
             // announcementsTab
             // 
+            this.announcementsTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("announcementsTab.BackgroundImage")));
             this.announcementsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.announcementsTab.Location = new System.Drawing.Point(4, 22);
             this.announcementsTab.Name = "announcementsTab";

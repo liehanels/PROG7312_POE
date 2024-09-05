@@ -31,8 +31,12 @@ namespace PROG7312_POE
 
         private void btnEventFilter_Click(object sender, EventArgs e)
         {
+            //sort the dictionary by date
+            var sortedDictionary = Events.OrderBy(x => x.Value.getEventDate()).ToDictionary(x => x.Key, x => x.Value);
+            //gets any filter parameters
             string categoryFilter = cmbxEventCategory.Text;
             string dateFilter = eventDateTime.Value.Date.ToShortDateString();
+            //creates the list view
             listVEvents.View = View.Details;
             listVEvents.Items.Clear();
             if (listVEvents.Columns.Count == 0)
@@ -44,7 +48,8 @@ namespace PROG7312_POE
                 listVEvents.Columns.Add("Event Category", 200);
                 listVEvents.Columns.Add("Event Description", 300);
             }
-            foreach (var Event in Events)
+            //populates the list view
+            foreach (var Event in sortedDictionary)
             {
                 ListViewItem item = new ListViewItem();
                 item.SubItems.Add(Event.Value.getEventName());
@@ -52,6 +57,7 @@ namespace PROG7312_POE
                 item.SubItems.Add(Event.Value.getEventTime().TimeOfDay + "");
                 item.SubItems.Add(Event.Value.getEventCategory());
                 item.SubItems.Add(Event.Value.getEventDescription());
+                //checks for filters before adding to the list
                 if (chbxEventDateCheck.Checked && dateFilter.Equals(Event.Value.getEventDate().ToShortDateString()))
                 {
                     if (categoryFilter.Equals("All Events"))

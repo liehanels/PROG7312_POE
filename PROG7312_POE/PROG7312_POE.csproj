@@ -57,6 +57,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Event.cs" />
+    <Compile Include="EventsAndAnnouncements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EventsAndAnnouncements.Designer.cs">
+      <DependentUpon>EventsAndAnnouncements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="formAddEvent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formAddEvent.Designer.cs">
+      <DependentUpon>formAddEvent.cs</DependentUpon>
+    </Compile>
     <Compile Include="formReportIssue.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +103,12 @@
     <Compile Include="ViewIssues.Designer.cs">
       <DependentUpon>ViewIssues.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="EventsAndAnnouncements.resx">
+      <DependentUpon>EventsAndAnnouncements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formAddEvent.resx">
+      <DependentUpon>formAddEvent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="formReportIssue.resx">
       <DependentUpon>formReportIssue.cs</DependentUpon>
     </EmbeddedResource>

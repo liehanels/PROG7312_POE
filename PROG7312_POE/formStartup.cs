@@ -22,7 +22,9 @@ namespace PROG7312_POE
         //opens the events and announcements dialogue
         private void btnEventsAndAnnouncements_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature coming soon!");
+            formEventsAndAnnouncements eventsAndAnnouncements = new formEventsAndAnnouncements();
+            eventsAndAnnouncements.StartPosition = FormStartPosition.CenterScreen;
+            eventsAndAnnouncements.ShowDialog();
         }
         //opens the service request status dialogue
         private void btnServiceReqStatus_Click(object sender, EventArgs e)

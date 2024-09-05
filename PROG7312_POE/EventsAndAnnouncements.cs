@@ -14,7 +14,7 @@ namespace PROG7312_POE
 {
     public partial class formEventsAndAnnouncements : Form
     {
-        Dictionary<int, Event> Events = new Dictionary<int, Event>();
+        SortedDictionary<int, Event> Events = new SortedDictionary<int, Event>();
         int key = 0;
         private Event _sharedObject;
         public Event SharedObject

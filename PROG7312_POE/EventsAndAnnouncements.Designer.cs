@@ -39,9 +39,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.listVEvents = new System.Windows.Forms.ListView();
             this.announcementsTab = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.listVAnnouncements = new System.Windows.Forms.ListView();
+            this.btnRefreshAnnouncements = new System.Windows.Forms.Button();
             this.EventsAndAnnoucementsTab.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.announcementsTab.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // EventsAndAnnoucementsTab
@@ -159,12 +164,45 @@
             // 
             this.announcementsTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("announcementsTab.BackgroundImage")));
             this.announcementsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.announcementsTab.Controls.Add(this.btnRefreshAnnouncements);
+            this.announcementsTab.Controls.Add(this.panel2);
             this.announcementsTab.Location = new System.Drawing.Point(4, 22);
             this.announcementsTab.Name = "announcementsTab";
             this.announcementsTab.Size = new System.Drawing.Size(1127, 657);
             this.announcementsTab.TabIndex = 1;
             this.announcementsTab.Text = "Announcements";
             this.announcementsTab.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.listVAnnouncements);
+            this.panel2.Location = new System.Drawing.Point(8, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1111, 563);
+            this.panel2.TabIndex = 0;
+            // 
+            // listVAnnouncements
+            // 
+            this.listVAnnouncements.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.listVAnnouncements.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listVAnnouncements.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVAnnouncements.HideSelection = false;
+            this.listVAnnouncements.Location = new System.Drawing.Point(0, 0);
+            this.listVAnnouncements.Name = "listVAnnouncements";
+            this.listVAnnouncements.Size = new System.Drawing.Size(1111, 563);
+            this.listVAnnouncements.TabIndex = 0;
+            this.listVAnnouncements.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnRefreshAnnouncements
+            // 
+            this.btnRefreshAnnouncements.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshAnnouncements.Location = new System.Drawing.Point(8, 583);
+            this.btnRefreshAnnouncements.Name = "btnRefreshAnnouncements";
+            this.btnRefreshAnnouncements.Size = new System.Drawing.Size(1111, 43);
+            this.btnRefreshAnnouncements.TabIndex = 5;
+            this.btnRefreshAnnouncements.Text = "Refresh Announcements";
+            this.btnRefreshAnnouncements.UseVisualStyleBackColor = true;
+            this.btnRefreshAnnouncements.Click += new System.EventHandler(this.btnRefreshAnnouncements_Click);
             // 
             // formEventsAndAnnouncements
             // 
@@ -179,6 +217,8 @@
             this.eventTab.ResumeLayout(false);
             this.eventTab.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.announcementsTab.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -195,5 +235,8 @@
         private System.Windows.Forms.ComboBox cmbxEventCategory;
         private System.Windows.Forms.Button btnAddEvent;
         private System.Windows.Forms.CheckBox chbxEventDateCheck;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnRefreshAnnouncements;
+        private System.Windows.Forms.ListView listVAnnouncements;
     }
 }

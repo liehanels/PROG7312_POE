@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Announcement.cs" />
     <Compile Include="Event.cs" />
     <Compile Include="EventsAndAnnouncements.cs">
       <SubType>Form</SubType>

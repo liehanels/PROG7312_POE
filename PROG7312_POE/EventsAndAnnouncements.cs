@@ -31,6 +31,8 @@ namespace PROG7312_POE
 
         private void btnEventFilter_Click(object sender, EventArgs e)
         {
+            string categoryFilter = cmbxEventCategory.Text;
+            string dateFilter = eventDateTime.Value.Date.ToShortDateString();
             listVEvents.View = View.Details;
             listVEvents.Items.Clear();
             if (listVEvents.Columns.Count == 0)
@@ -38,9 +40,9 @@ namespace PROG7312_POE
                 listVEvents.Columns.Add("", 10);
                 listVEvents.Columns.Add("Event Name", 200);
                 listVEvents.Columns.Add("Event Date", 300);
-                listVEvents.Columns.Add("Event Time", 250);
-                listVEvents.Columns.Add("Event Category", 150);
-                listVEvents.Columns.Add("Event Description", 250);
+                listVEvents.Columns.Add("Event Time", 200);
+                listVEvents.Columns.Add("Event Category", 200);
+                listVEvents.Columns.Add("Event Description", 300);
             }
             foreach (var Event in Events)
             {
@@ -50,7 +52,28 @@ namespace PROG7312_POE
                 item.SubItems.Add(Event.Value.getEventTime().TimeOfDay + "");
                 item.SubItems.Add(Event.Value.getEventCategory());
                 item.SubItems.Add(Event.Value.getEventDescription());
-                listVEvents.Items.Add(item);
+                if (chbxEventDateCheck.Checked && dateFilter.Equals(Event.Value.getEventDate().ToShortDateString()))
+                {
+                    if (categoryFilter.Equals("All Events"))
+                    {
+                        listVEvents.Items.Add(item);
+                    }
+                    else if (Event.Value.getEventCategory().Equals(categoryFilter))
+                    {
+                        listVEvents.Items.Add(item);
+                    }
+                }
+                else if (!chbxEventDateCheck.Checked)
+                {
+                    if (categoryFilter.Equals("All Events"))
+                    {
+                        listVEvents.Items.Add(item);
+                    }
+                    else if (Event.Value.getEventCategory().Equals(categoryFilter))
+                    {
+                        listVEvents.Items.Add(item);
+                    }
+                }
             }
         }
 

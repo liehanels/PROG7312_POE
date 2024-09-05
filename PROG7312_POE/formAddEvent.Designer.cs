@@ -191,6 +191,14 @@
             this.cmbxEventCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbxEventCategory.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxEventCategory.FormattingEnabled = true;
+            this.cmbxEventCategory.Items.AddRange(new object[] {
+            "All Events",
+            "Fun Day",
+            "Community Outreach",
+            "Training",
+            "Awareness",
+            "Celebration",
+            "Function"});
             this.cmbxEventCategory.Location = new System.Drawing.Point(243, 218);
             this.cmbxEventCategory.Name = "cmbxEventCategory";
             this.cmbxEventCategory.Size = new System.Drawing.Size(554, 32);

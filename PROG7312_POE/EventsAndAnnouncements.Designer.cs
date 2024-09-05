@@ -31,14 +31,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formEventsAndAnnouncements));
             this.EventsAndAnnoucementsTab = new System.Windows.Forms.TabControl();
             this.eventTab = new System.Windows.Forms.TabPage();
-            this.announcementsTab = new System.Windows.Forms.TabPage();
-            this.listVEvents = new System.Windows.Forms.ListView();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.eventDateTime = new System.Windows.Forms.DateTimePicker();
-            this.cmbxEventCategory = new System.Windows.Forms.ComboBox();
-            this.btnEventFilter = new System.Windows.Forms.Button();
+            this.chbxEventDateCheck = new System.Windows.Forms.CheckBox();
             this.btnAddEvent = new System.Windows.Forms.Button();
-            this.lblEventDateCheck = new System.Windows.Forms.CheckBox();
+            this.btnEventFilter = new System.Windows.Forms.Button();
+            this.cmbxEventCategory = new System.Windows.Forms.ComboBox();
+            this.eventDateTime = new System.Windows.Forms.DateTimePicker();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.listVEvents = new System.Windows.Forms.ListView();
+            this.announcementsTab = new System.Windows.Forms.TabPage();
             this.EventsAndAnnoucementsTab.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             this.eventTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eventTab.BackgroundImage")));
             this.eventTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.eventTab.Controls.Add(this.lblEventDateCheck);
+            this.eventTab.Controls.Add(this.chbxEventDateCheck);
             this.eventTab.Controls.Add(this.btnAddEvent);
             this.eventTab.Controls.Add(this.btnEventFilter);
             this.eventTab.Controls.Add(this.cmbxEventCategory);
@@ -72,44 +72,40 @@
             this.eventTab.Text = "Events";
             this.eventTab.UseVisualStyleBackColor = true;
             // 
-            // announcementsTab
+            // chbxEventDateCheck
             // 
-            this.announcementsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.announcementsTab.Location = new System.Drawing.Point(4, 22);
-            this.announcementsTab.Name = "announcementsTab";
-            this.announcementsTab.Size = new System.Drawing.Size(1127, 657);
-            this.announcementsTab.TabIndex = 1;
-            this.announcementsTab.Text = "Announcements";
-            this.announcementsTab.UseVisualStyleBackColor = true;
+            this.chbxEventDateCheck.AutoSize = true;
+            this.chbxEventDateCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.chbxEventDateCheck.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxEventDateCheck.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.chbxEventDateCheck.Location = new System.Drawing.Point(310, 497);
+            this.chbxEventDateCheck.Name = "chbxEventDateCheck";
+            this.chbxEventDateCheck.Size = new System.Drawing.Size(100, 28);
+            this.chbxEventDateCheck.TabIndex = 2;
+            this.chbxEventDateCheck.Text = "Filter Date";
+            this.chbxEventDateCheck.UseVisualStyleBackColor = false;
             // 
-            // listVEvents
+            // btnAddEvent
             // 
-            this.listVEvents.BackColor = System.Drawing.SystemColors.Info;
-            this.listVEvents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listVEvents.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listVEvents.HideSelection = false;
-            this.listVEvents.Location = new System.Drawing.Point(0, 0);
-            this.listVEvents.Name = "listVEvents";
-            this.listVEvents.Size = new System.Drawing.Size(1127, 478);
-            this.listVEvents.TabIndex = 0;
-            this.listVEvents.UseCompatibleStateImageBehavior = false;
+            this.btnAddEvent.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddEvent.Location = new System.Drawing.Point(939, 599);
+            this.btnAddEvent.Name = "btnAddEvent";
+            this.btnAddEvent.Size = new System.Drawing.Size(180, 43);
+            this.btnAddEvent.TabIndex = 5;
+            this.btnAddEvent.Text = "Add Event";
+            this.btnAddEvent.UseVisualStyleBackColor = true;
+            this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
             // 
-            // panel1
+            // btnEventFilter
             // 
-            this.panel1.Controls.Add(this.listVEvents);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1127, 478);
-            this.panel1.TabIndex = 1;
-            // 
-            // eventDateTime
-            // 
-            this.eventDateTime.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventDateTime.Location = new System.Drawing.Point(8, 497);
-            this.eventDateTime.Name = "eventDateTime";
-            this.eventDateTime.Size = new System.Drawing.Size(296, 29);
-            this.eventDateTime.TabIndex = 1;
+            this.btnEventFilter.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventFilter.Location = new System.Drawing.Point(9, 599);
+            this.btnEventFilter.Name = "btnEventFilter";
+            this.btnEventFilter.Size = new System.Drawing.Size(295, 43);
+            this.btnEventFilter.TabIndex = 4;
+            this.btnEventFilter.Text = "Filter Events";
+            this.btnEventFilter.UseVisualStyleBackColor = true;
+            this.btnEventFilter.Click += new System.EventHandler(this.btnEventFilter_Click);
             // 
             // cmbxEventCategory
             // 
@@ -129,40 +125,44 @@
             this.cmbxEventCategory.TabIndex = 3;
             this.cmbxEventCategory.Text = "All Events";
             // 
-            // btnEventFilter
+            // eventDateTime
             // 
-            this.btnEventFilter.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEventFilter.Location = new System.Drawing.Point(9, 599);
-            this.btnEventFilter.Name = "btnEventFilter";
-            this.btnEventFilter.Size = new System.Drawing.Size(295, 43);
-            this.btnEventFilter.TabIndex = 4;
-            this.btnEventFilter.Text = "Filter Events";
-            this.btnEventFilter.UseVisualStyleBackColor = true;
-            this.btnEventFilter.Click += new System.EventHandler(this.btnEventFilter_Click);
+            this.eventDateTime.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventDateTime.Location = new System.Drawing.Point(8, 497);
+            this.eventDateTime.Name = "eventDateTime";
+            this.eventDateTime.Size = new System.Drawing.Size(296, 29);
+            this.eventDateTime.TabIndex = 1;
             // 
-            // btnAddEvent
+            // panel1
             // 
-            this.btnAddEvent.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddEvent.Location = new System.Drawing.Point(939, 599);
-            this.btnAddEvent.Name = "btnAddEvent";
-            this.btnAddEvent.Size = new System.Drawing.Size(180, 43);
-            this.btnAddEvent.TabIndex = 5;
-            this.btnAddEvent.Text = "Add Event";
-            this.btnAddEvent.UseVisualStyleBackColor = true;
-            this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
+            this.panel1.Controls.Add(this.listVEvents);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1127, 478);
+            this.panel1.TabIndex = 1;
             // 
-            // lblEventDateCheck
+            // listVEvents
             // 
-            this.lblEventDateCheck.AutoSize = true;
-            this.lblEventDateCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblEventDateCheck.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEventDateCheck.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblEventDateCheck.Location = new System.Drawing.Point(310, 497);
-            this.lblEventDateCheck.Name = "lblEventDateCheck";
-            this.lblEventDateCheck.Size = new System.Drawing.Size(100, 28);
-            this.lblEventDateCheck.TabIndex = 2;
-            this.lblEventDateCheck.Text = "Filter Date";
-            this.lblEventDateCheck.UseVisualStyleBackColor = false;
+            this.listVEvents.BackColor = System.Drawing.SystemColors.Info;
+            this.listVEvents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listVEvents.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVEvents.HideSelection = false;
+            this.listVEvents.Location = new System.Drawing.Point(0, 0);
+            this.listVEvents.Name = "listVEvents";
+            this.listVEvents.Size = new System.Drawing.Size(1127, 478);
+            this.listVEvents.TabIndex = 0;
+            this.listVEvents.UseCompatibleStateImageBehavior = false;
+            // 
+            // announcementsTab
+            // 
+            this.announcementsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.announcementsTab.Location = new System.Drawing.Point(4, 22);
+            this.announcementsTab.Name = "announcementsTab";
+            this.announcementsTab.Size = new System.Drawing.Size(1127, 657);
+            this.announcementsTab.TabIndex = 1;
+            this.announcementsTab.Text = "Announcements";
+            this.announcementsTab.UseVisualStyleBackColor = true;
             // 
             // formEventsAndAnnouncements
             // 
@@ -192,6 +192,6 @@
         private System.Windows.Forms.Button btnEventFilter;
         private System.Windows.Forms.ComboBox cmbxEventCategory;
         private System.Windows.Forms.Button btnAddEvent;
-        private System.Windows.Forms.CheckBox lblEventDateCheck;
+        private System.Windows.Forms.CheckBox chbxEventDateCheck;
     }
 }

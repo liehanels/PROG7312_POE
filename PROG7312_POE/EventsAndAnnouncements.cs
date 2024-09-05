@@ -16,13 +16,10 @@ namespace PROG7312_POE
     {
         SortedDictionary<int, Event> Events = new SortedDictionary<int, Event>();
         int key = 0;
-        private Event _sharedObject;
         public Event SharedObject
         {
-            get { return _sharedObject; }
             set
             {
-                _sharedObject = value;
                 Events.Add(key, value);
                 key++;
             }

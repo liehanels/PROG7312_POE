@@ -54,6 +54,7 @@
             // 
             // tblLayoutRequest
             // 
+            this.tblLayoutRequest.AutoScroll = true;
             this.tblLayoutRequest.AutoSize = true;
             this.tblLayoutRequest.BackColor = System.Drawing.Color.Transparent;
             this.tblLayoutRequest.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;

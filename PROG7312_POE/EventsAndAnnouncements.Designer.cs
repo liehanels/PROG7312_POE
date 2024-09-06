@@ -39,9 +39,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.listVEvents = new System.Windows.Forms.ListView();
             this.announcementsTab = new System.Windows.Forms.TabPage();
+            this.btnRefreshAnnouncements = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.listVAnnouncements = new System.Windows.Forms.ListView();
-            this.btnRefreshAnnouncements = new System.Windows.Forms.Button();
+            this.reccomendationTab = new System.Windows.Forms.TabPage();
             this.EventsAndAnnoucementsTab.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -53,6 +54,7 @@
             // 
             this.EventsAndAnnoucementsTab.Controls.Add(this.eventTab);
             this.EventsAndAnnoucementsTab.Controls.Add(this.announcementsTab);
+            this.EventsAndAnnoucementsTab.Controls.Add(this.reccomendationTab);
             this.EventsAndAnnoucementsTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EventsAndAnnoucementsTab.Location = new System.Drawing.Point(0, 0);
             this.EventsAndAnnoucementsTab.Name = "EventsAndAnnoucementsTab";
@@ -92,7 +94,7 @@
             // 
             // btnAddEvent
             // 
-            this.btnAddEvent.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAddEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddEvent.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEvent.Location = new System.Drawing.Point(939, 599);
             this.btnAddEvent.Name = "btnAddEvent";
@@ -141,11 +143,12 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.Controls.Add(this.listVEvents);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Location = new System.Drawing.Point(8, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1127, 478);
+            this.panel1.Size = new System.Drawing.Size(1111, 478);
             this.panel1.TabIndex = 1;
             // 
             // listVEvents
@@ -156,7 +159,7 @@
             this.listVEvents.HideSelection = false;
             this.listVEvents.Location = new System.Drawing.Point(0, 0);
             this.listVEvents.Name = "listVEvents";
-            this.listVEvents.Size = new System.Drawing.Size(1127, 478);
+            this.listVEvents.Size = new System.Drawing.Size(1111, 478);
             this.listVEvents.TabIndex = 0;
             this.listVEvents.UseCompatibleStateImageBehavior = false;
             // 
@@ -173,8 +176,23 @@
             this.announcementsTab.Text = "Announcements";
             this.announcementsTab.UseVisualStyleBackColor = true;
             // 
+            // btnRefreshAnnouncements
+            // 
+            this.btnRefreshAnnouncements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRefreshAnnouncements.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshAnnouncements.Location = new System.Drawing.Point(8, 583);
+            this.btnRefreshAnnouncements.Name = "btnRefreshAnnouncements";
+            this.btnRefreshAnnouncements.Size = new System.Drawing.Size(1111, 43);
+            this.btnRefreshAnnouncements.TabIndex = 5;
+            this.btnRefreshAnnouncements.Text = "Refresh Announcements";
+            this.btnRefreshAnnouncements.UseVisualStyleBackColor = true;
+            this.btnRefreshAnnouncements.Click += new System.EventHandler(this.btnRefreshAnnouncements_Click);
+            // 
             // panel2
             // 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.listVAnnouncements);
             this.panel2.Location = new System.Drawing.Point(8, 3);
             this.panel2.Name = "panel2";
@@ -193,16 +211,16 @@
             this.listVAnnouncements.TabIndex = 0;
             this.listVAnnouncements.UseCompatibleStateImageBehavior = false;
             // 
-            // btnRefreshAnnouncements
+            // reccomendationTab
             // 
-            this.btnRefreshAnnouncements.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRefreshAnnouncements.Location = new System.Drawing.Point(8, 583);
-            this.btnRefreshAnnouncements.Name = "btnRefreshAnnouncements";
-            this.btnRefreshAnnouncements.Size = new System.Drawing.Size(1111, 43);
-            this.btnRefreshAnnouncements.TabIndex = 5;
-            this.btnRefreshAnnouncements.Text = "Refresh Announcements";
-            this.btnRefreshAnnouncements.UseVisualStyleBackColor = true;
-            this.btnRefreshAnnouncements.Click += new System.EventHandler(this.btnRefreshAnnouncements_Click);
+            this.reccomendationTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("reccomendationTab.BackgroundImage")));
+            this.reccomendationTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.reccomendationTab.Location = new System.Drawing.Point(4, 22);
+            this.reccomendationTab.Name = "reccomendationTab";
+            this.reccomendationTab.Size = new System.Drawing.Size(1133, 657);
+            this.reccomendationTab.TabIndex = 2;
+            this.reccomendationTab.Text = "Reccomendations";
+            this.reccomendationTab.UseVisualStyleBackColor = true;
             // 
             // formEventsAndAnnouncements
             // 
@@ -238,5 +256,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnRefreshAnnouncements;
         private System.Windows.Forms.ListView listVAnnouncements;
+        private System.Windows.Forms.TabPage reccomendationTab;
     }
 }

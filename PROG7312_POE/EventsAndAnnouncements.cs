@@ -25,8 +25,11 @@ namespace PROG7312_POE
                 //check the date values for spans that could be over a year
                 DateTime startDate = Events[key].getEventDate();
                 DateTime nowDate = DateTime.Now;
+                //gets the amount of days until the event
                 var countdownDays = startDate.Subtract(nowDate).TotalDays;
+                //rounds up
                 countdownDays = Math.Ceiling(countdownDays);
+                //pushes to the stack
                 Announcements.Push(new Announcement((int)countdownDays, Events[key]));
                 key++;
             }
@@ -52,6 +55,7 @@ namespace PROG7312_POE
             //creates the list view
             listVEvents.View = View.Details;
             listVEvents.Items.Clear();
+            //populates the column names
             if (listVEvents.Columns.Count == 0)
             {
                 listVEvents.Columns.Add("", 10);
@@ -129,15 +133,19 @@ namespace PROG7312_POE
 
         private void btnRefreshAnnouncements_Click(object sender, EventArgs e)
         {
+            //sorts the announcements into a new stack
             var sortedAnnouncements = sortStack(Announcements);
+            //creates the list view
             listVAnnouncements.View = View.Details;
             listVAnnouncements.Items.Clear();
+            //adds the column names
             if (listVAnnouncements.Columns.Count == 0)
             {
                 listVAnnouncements.Columns.Add("", 10);
                 listVAnnouncements.Columns.Add("Countdown Days", 300);
                 listVAnnouncements.Columns.Add("Event Name", 300);
             }
+            //populates the list view
             foreach (var announcement in sortedAnnouncements)
             {
                 ListViewItem item = new ListViewItem("");
@@ -145,6 +153,7 @@ namespace PROG7312_POE
                 item.SubItems.Add(announcement.Event.getEventName());
                 listVAnnouncements.Items.Add(item);
             }
+            //refreshes the list to display the information
             listVAnnouncements.Refresh();
         }
 

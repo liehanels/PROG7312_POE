@@ -26,7 +26,15 @@ namespace PROG7312_POE
         }
         //getters
         public DateTime getEventDate() { return this.eventDate.Date; }
-        public DateTime getEventTime() { return this.eventTime; }
+        public string getEventTime() 
+        {
+            string time = this.eventTime.Hour + "h" + this.eventTime.Minute;
+            if (this.eventTime.Minute < 9)
+            {
+                time = this.eventTime.Hour + "h0" + this.eventTime.Minute;
+            }
+            return time;
+        }
         public string getEventName() { return this.eventName; }
         public string getEventCategory() { return this.eventCategory; }
         public string getEventDescription() { return this.eventDescription; }

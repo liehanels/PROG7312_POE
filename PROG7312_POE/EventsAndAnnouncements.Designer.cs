@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.listVAnnouncements = new System.Windows.Forms.ListView();
             this.reccomendationTab = new System.Windows.Forms.TabPage();
+            this.btnReturnToMainMenu = new System.Windows.Forms.Button();
             this.EventsAndAnnoucementsTab.SuspendLayout();
             this.eventTab.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -66,6 +67,7 @@
             // 
             this.eventTab.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("eventTab.BackgroundImage")));
             this.eventTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.eventTab.Controls.Add(this.btnReturnToMainMenu);
             this.eventTab.Controls.Add(this.chbxEventDateCheck);
             this.eventTab.Controls.Add(this.btnAddEvent);
             this.eventTab.Controls.Add(this.btnEventFilter);
@@ -83,11 +85,11 @@
             // 
             this.chbxEventDateCheck.AutoSize = true;
             this.chbxEventDateCheck.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.chbxEventDateCheck.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbxEventDateCheck.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbxEventDateCheck.ForeColor = System.Drawing.SystemColors.ControlText;
             this.chbxEventDateCheck.Location = new System.Drawing.Point(310, 497);
             this.chbxEventDateCheck.Name = "chbxEventDateCheck";
-            this.chbxEventDateCheck.Size = new System.Drawing.Size(100, 28);
+            this.chbxEventDateCheck.Size = new System.Drawing.Size(113, 28);
             this.chbxEventDateCheck.TabIndex = 2;
             this.chbxEventDateCheck.Text = "Filter Date";
             this.chbxEventDateCheck.UseVisualStyleBackColor = false;
@@ -95,7 +97,7 @@
             // btnAddEvent
             // 
             this.btnAddEvent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddEvent.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddEvent.Location = new System.Drawing.Point(939, 599);
             this.btnAddEvent.Name = "btnAddEvent";
             this.btnAddEvent.Size = new System.Drawing.Size(180, 43);
@@ -106,7 +108,7 @@
             // 
             // btnEventFilter
             // 
-            this.btnEventFilter.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEventFilter.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEventFilter.Location = new System.Drawing.Point(9, 599);
             this.btnEventFilter.Name = "btnEventFilter";
             this.btnEventFilter.Size = new System.Drawing.Size(295, 43);
@@ -117,7 +119,7 @@
             // 
             // cmbxEventCategory
             // 
-            this.cmbxEventCategory.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxEventCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxEventCategory.FormattingEnabled = true;
             this.cmbxEventCategory.Items.AddRange(new object[] {
             "All Events",
@@ -135,7 +137,7 @@
             // 
             // eventDateTime
             // 
-            this.eventDateTime.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.eventDateTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventDateTime.Location = new System.Drawing.Point(8, 497);
             this.eventDateTime.Name = "eventDateTime";
             this.eventDateTime.Size = new System.Drawing.Size(296, 29);
@@ -155,7 +157,7 @@
             // 
             this.listVEvents.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.listVEvents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listVEvents.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVEvents.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listVEvents.HideSelection = false;
             this.listVEvents.Location = new System.Drawing.Point(0, 0);
             this.listVEvents.Name = "listVEvents";
@@ -180,7 +182,7 @@
             // 
             this.btnRefreshAnnouncements.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRefreshAnnouncements.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefreshAnnouncements.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRefreshAnnouncements.Location = new System.Drawing.Point(8, 583);
             this.btnRefreshAnnouncements.Name = "btnRefreshAnnouncements";
             this.btnRefreshAnnouncements.Size = new System.Drawing.Size(1111, 43);
@@ -203,7 +205,7 @@
             // 
             this.listVAnnouncements.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.listVAnnouncements.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listVAnnouncements.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listVAnnouncements.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listVAnnouncements.HideSelection = false;
             this.listVAnnouncements.Location = new System.Drawing.Point(0, 0);
             this.listVAnnouncements.Name = "listVAnnouncements";
@@ -217,10 +219,22 @@
             this.reccomendationTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.reccomendationTab.Location = new System.Drawing.Point(4, 22);
             this.reccomendationTab.Name = "reccomendationTab";
-            this.reccomendationTab.Size = new System.Drawing.Size(1133, 657);
+            this.reccomendationTab.Size = new System.Drawing.Size(1127, 657);
             this.reccomendationTab.TabIndex = 2;
             this.reccomendationTab.Text = "Reccomendations";
             this.reccomendationTab.UseVisualStyleBackColor = true;
+            // 
+            // btnReturnToMainMenu
+            // 
+            this.btnReturnToMainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReturnToMainMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturnToMainMenu.Location = new System.Drawing.Point(732, 599);
+            this.btnReturnToMainMenu.Name = "btnReturnToMainMenu";
+            this.btnReturnToMainMenu.Size = new System.Drawing.Size(180, 43);
+            this.btnReturnToMainMenu.TabIndex = 6;
+            this.btnReturnToMainMenu.Text = "Main Menu";
+            this.btnReturnToMainMenu.UseVisualStyleBackColor = true;
+            this.btnReturnToMainMenu.Click += new System.EventHandler(this.btnReturnToMainMenu_Click);
             // 
             // formEventsAndAnnouncements
             // 
@@ -257,5 +271,6 @@
         private System.Windows.Forms.Button btnRefreshAnnouncements;
         private System.Windows.Forms.ListView listVAnnouncements;
         private System.Windows.Forms.TabPage reccomendationTab;
+        private System.Windows.Forms.Button btnReturnToMainMenu;
     }
 }

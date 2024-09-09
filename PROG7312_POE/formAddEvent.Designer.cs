@@ -79,7 +79,7 @@
             // txtEventDescription
             // 
             this.txtEventDescription.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEventDescription.Font = new System.Drawing.Font("Franklin Gothic Book", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEventDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEventDescription.Location = new System.Drawing.Point(243, 271);
             this.txtEventDescription.Multiline = true;
             this.txtEventDescription.Name = "txtEventDescription";
@@ -90,7 +90,7 @@
             // 
             this.lblEventDescription.AutoSize = true;
             this.lblEventDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEventDescription.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventDescription.Location = new System.Drawing.Point(3, 268);
             this.lblEventDescription.Name = "lblEventDescription";
             this.lblEventDescription.Size = new System.Drawing.Size(234, 90);
@@ -102,7 +102,7 @@
             // 
             this.lblEventCategory.AutoSize = true;
             this.lblEventCategory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEventCategory.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventCategory.Location = new System.Drawing.Point(3, 201);
             this.lblEventCategory.Name = "lblEventCategory";
             this.lblEventCategory.Size = new System.Drawing.Size(234, 67);
@@ -114,7 +114,7 @@
             // 
             this.lblEventTime.AutoSize = true;
             this.lblEventTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEventTime.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventTime.Location = new System.Drawing.Point(3, 134);
             this.lblEventTime.Name = "lblEventTime";
             this.lblEventTime.Size = new System.Drawing.Size(234, 67);
@@ -126,7 +126,7 @@
             // 
             this.lblEventDate.AutoSize = true;
             this.lblEventDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEventDate.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventDate.Location = new System.Drawing.Point(3, 67);
             this.lblEventDate.Name = "lblEventDate";
             this.lblEventDate.Size = new System.Drawing.Size(234, 67);
@@ -138,7 +138,7 @@
             // 
             this.lblEventName.AutoSize = true;
             this.lblEventName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblEventName.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEventName.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEventName.Location = new System.Drawing.Point(3, 0);
             this.lblEventName.Name = "lblEventName";
             this.lblEventName.Size = new System.Drawing.Size(234, 67);
@@ -149,7 +149,7 @@
             // btnReturn
             // 
             this.btnReturn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnReturn.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(3, 361);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(234, 86);
@@ -161,7 +161,7 @@
             // btnSaveEvent
             // 
             this.btnSaveEvent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnSaveEvent.Font = new System.Drawing.Font("Franklin Gothic Medium Cond", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSaveEvent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveEvent.Location = new System.Drawing.Point(243, 361);
             this.btnSaveEvent.Name = "btnSaveEvent";
             this.btnSaveEvent.Size = new System.Drawing.Size(554, 86);
@@ -173,7 +173,7 @@
             // txtEventName
             // 
             this.txtEventName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEventName.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEventName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEventName.Location = new System.Drawing.Point(243, 19);
             this.txtEventName.Name = "txtEventName";
             this.txtEventName.Size = new System.Drawing.Size(554, 29);
@@ -182,7 +182,7 @@
             // dpEventDate
             // 
             this.dpEventDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dpEventDate.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpEventDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpEventDate.Location = new System.Drawing.Point(243, 86);
             this.dpEventDate.Name = "dpEventDate";
             this.dpEventDate.Size = new System.Drawing.Size(554, 29);
@@ -191,10 +191,9 @@
             // cmbxEventCategory
             // 
             this.cmbxEventCategory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmbxEventCategory.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbxEventCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbxEventCategory.FormattingEnabled = true;
             this.cmbxEventCategory.Items.AddRange(new object[] {
-            "All Events",
             "Fun Day",
             "Community Outreach",
             "Training",
@@ -209,7 +208,7 @@
             // dpEventTime
             // 
             this.dpEventTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dpEventTime.Font = new System.Drawing.Font("Franklin Gothic Book", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dpEventTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpEventTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dpEventTime.Location = new System.Drawing.Point(243, 153);
             this.dpEventTime.Name = "dpEventTime";

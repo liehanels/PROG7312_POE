@@ -235,9 +235,12 @@ namespace PROG7312_POE
 
         private void btnResetRecommendations_Click(object sender, EventArgs e)
         {
-            listVRecommendations.Clear();
             var result = MessageBox.Show("Are you sure you want to reset your recommendations?", "Reset recommendations", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes) { Recommendations.Clear(); }
+            if (result == DialogResult.Yes)
+            {
+                Recommendations.Clear();
+                listVRecommendations.Clear();
+            }
         }
     }
 }

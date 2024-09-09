@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PROG7312_POE
 {
-    public class Announcement
+    public class Announcement : Event
     {
         public int CountdownDays {  get; set; }
         public Event Event { get; set; }

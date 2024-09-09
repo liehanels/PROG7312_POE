@@ -16,6 +16,7 @@ namespace PROG7312_POE
     {
         SortedDictionary<int, Event> Events = new SortedDictionary<int, Event>();
         Stack<Announcement> Announcements = new Stack<Announcement>();
+        List<String> Recommendations = new List<String>();
         int key = 0;
         public Event SharedObject
         {
@@ -51,6 +52,11 @@ namespace PROG7312_POE
             var sortedEvents = Events.OrderBy(x => x.Value.getEventDate()).ToDictionary(x => x.Key, x => x.Value);
             //gets any filter parameters
             string categoryFilter = cmbxEventCategory.Text;
+            //adds search filter to the reccomendation list
+            if (!Recommendations.Contains(cmbxEventCategory.Text))
+            {
+                Recommendations.Add(cmbxEventCategory.Text);
+            }
             string dateFilter = eventDateTime.Value.Date.ToShortDateString();
             //creates the list view
             listVEvents.View = View.Details;
@@ -182,6 +188,56 @@ namespace PROG7312_POE
         {
             var quit = MessageBox.Show("Are you sure you want to return to main menu? Any unsaved changes will be lost.", "Return to main menu?", MessageBoxButtons.YesNo);
             if (quit == DialogResult.Yes) { this.Close(); }
+        }
+
+        private void btnRefreshReccomendations_Click(object sender, EventArgs e)
+        {
+            if (Recommendations.Count == 0) { MessageBox.Show("No recommendations available yet"); }
+            else
+            {
+                //sorts
+                var sortedEvents = Events.OrderBy(x => x.Value.getEventDate()).ToDictionary(x => x.Key, x => x.Value);
+                Recommendations.Sort();
+                //creates the list view
+                listVRecommendations.View = View.Details;
+                listVRecommendations.Items.Clear();
+                //populates the column names
+                if (listVRecommendations.Columns.Count == 0)
+                {
+                    listVRecommendations.Columns.Add("", 10);
+                    listVRecommendations.Columns.Add("Event Name", 200);
+                    listVRecommendations.Columns.Add("Event Date", 300);
+                    listVRecommendations.Columns.Add("Event Time", 200);
+                    listVRecommendations.Columns.Add("Event Category", 200);
+                    listVRecommendations.Columns.Add("Event Description", 300);
+                }
+                //populates the list view
+                foreach (var Event in sortedEvents)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.SubItems.Add(Event.Value.getEventName());
+                    item.SubItems.Add(Event.Value.getEventDate().Date.ToLongDateString());
+                    item.SubItems.Add(Event.Value.getEventTime());
+                    item.SubItems.Add(Event.Value.getEventCategory());
+                    item.SubItems.Add(Event.Value.getEventDescription());
+
+                    foreach (var r in Recommendations)
+                    {
+                        if (Event.Value.getEventCategory().Equals(r))
+                        {
+                            listVRecommendations.Items.Add(item);
+                        }
+                }
+                }
+                if (listVRecommendations.Items.Count == 0) { MessageBox.Show("No events found."); }
+            }
+        }
+
+        private void btnResetRecommendations_Click(object sender, EventArgs e)
+        {
+            listVRecommendations.Clear();
+            var result = MessageBox.Show("Are you sure you want to reset your recommendations?", "Reset recommendations", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes) { Recommendations.Clear(); }
         }
     }
 }

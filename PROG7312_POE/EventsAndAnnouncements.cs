@@ -192,7 +192,7 @@ namespace PROG7312_POE
 
         private void btnRefreshReccomendations_Click(object sender, EventArgs e)
         {
-            if (Recommendations.Count == 0) { MessageBox.Show("No recommendations available yet"); }
+            if (Recommendations.Count < 1) { MessageBox.Show("No recommendations available yet"); }
             else
             {
                 //sorts
@@ -229,7 +229,7 @@ namespace PROG7312_POE
                         }
                 }
                 }
-                if (listVRecommendations.Items.Count == 0) { MessageBox.Show("No events found."); }
+                if (listVRecommendations.Items.Count == 0) { MessageBox.Show("No recommendations available yet"); }
             }
         }
 

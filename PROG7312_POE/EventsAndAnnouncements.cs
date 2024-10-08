@@ -31,7 +31,10 @@ namespace PROG7312_POE
                 //rounds up
                 countdownDays = Math.Ceiling(countdownDays);
                 //pushes to the stack
-                Announcements.Push(new Announcement((int)countdownDays, Events[key]));
+                if (countdownDays <= 7 && countdownDays >= -7)
+                {
+                    Announcements.Push(new Announcement((int)countdownDays, Events[key]));
+                }
                 key++;
             }
         }
@@ -229,7 +232,7 @@ namespace PROG7312_POE
                         }
                 }
                 }
-                if (listVRecommendations.Items.Count == 0) { MessageBox.Show("No events found."); }
+                if (listVRecommendations.Items.Count == 0) { MessageBox.Show("No recommendations available yet"); }
             }
         }
 

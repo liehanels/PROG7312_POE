@@ -16,7 +16,7 @@ namespace PROG7312_POE
     {
         SortedDictionary<int, Event> Events = new SortedDictionary<int, Event>();
         Stack<Announcement> Announcements = new Stack<Announcement>();
-        List<String> Recommendations = new List<String>();
+        HashSet<String> Recommendations = new HashSet<String>();
         int key = 0;
         public Event SharedObject
         {
@@ -200,7 +200,7 @@ namespace PROG7312_POE
             {
                 //sorts
                 var sortedEvents = Events.OrderBy(x => x.Value.getEventDate()).ToDictionary(x => x.Key, x => x.Value);
-                Recommendations.Sort();
+                List<String> RecommendationsSorted = new List<string>(Recommendations);
                 //creates the list view
                 listVRecommendations.View = View.Details;
                 listVRecommendations.Items.Clear();
@@ -224,7 +224,7 @@ namespace PROG7312_POE
                     item.SubItems.Add(Event.Value.getEventCategory());
                     item.SubItems.Add(Event.Value.getEventDescription());
 
-                    foreach (var r in Recommendations)
+                    foreach (var r in RecommendationsSorted)
                     {
                         if (Event.Value.getEventCategory().Equals(r))
                         {

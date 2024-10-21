@@ -29,7 +29,9 @@ namespace PROG7312_POE
         //opens the service request status dialogue
         private void btnServiceReqStatus_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Feature coming soon!");
+            formServiceRequestStatus status = new formServiceRequestStatus();
+            status.StartPosition = FormStartPosition.CenterScreen;
+            status.ShowDialog();
         }
         //opens the report issues dialogue
         private void btnReportIssues_Click(object sender, EventArgs e)

@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using ListView = System.Windows.Forms.ListView;
 
 namespace PROG7312_POE
 {
@@ -17,7 +11,6 @@ namespace PROG7312_POE
         public formServiceRequestStatus()
         {
             InitializeComponent();
-
             var tree = new Tree("Municipal Service Request");
             var requests = new List<ServiceRequest>
             {
@@ -40,10 +33,10 @@ namespace PROG7312_POE
                 Dock = DockStyle.Fill,
                 BackColor = Color.White
             };
-
             Controls.Add(panel);
             PaintTree(panel, tree.Root);
         }
+
         private void PaintTree(Panel panel, TreeNode root)
         {
             panel.Paint += (sender, e) =>
@@ -51,7 +44,6 @@ namespace PROG7312_POE
                 var graphics = e.Graphics;
                 var pen = new Pen(Color.Black, 2);
                 var font = new Font("Arial", 10);
-
                 DrawNode(graphics, root, panel.Width / 2, 100, 0, pen, font);
             };
             panel.MouseClick += (sender, e) =>
@@ -84,6 +76,7 @@ namespace PROG7312_POE
                 childX += offsetX;
             }
         }
+
         private void HandleMouseClick(Panel panel, MouseEventArgs e, TreeNode node, int x, int y, int depth)
         {
             int offsetX = 280 - depth * 70; // Maintain current spacing
@@ -92,7 +85,7 @@ namespace PROG7312_POE
 
             if (IsPointInCircle(e.X, e.Y, x, y, radius))
             {
-                MessageBox.Show($"Node clicked: {node.Name}");
+                DisplayNodeInformation(node);
                 return;
             }
 
@@ -104,35 +97,52 @@ namespace PROG7312_POE
             }
         }
 
+        private void DisplayNodeInformation(TreeNode node)
+        {
+            var info = new StringBuilder();
+            while (node != null)
+            {
+                info.Insert(0, node.Name + Environment.NewLine);
+                node = node.Parent; // Ensure TreeNode class has a Parent reference
+            }
+            MessageBox.Show(info.ToString(), "Node Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private bool IsPointInCircle(int px, int py, int cx, int cy, int radius)
         {
             int dx = px - cx;
             int dy = py - cy;
             return dx * dx + dy * dy <= radius * radius;
         }
-
     }
     public class TreeNode
     {
         public string Name { get; set; }
+        public string FullInfo { get; set; }
+        public TreeNode Parent { get; set; }
         public List<TreeNode> Children { get; set; }
 
-        public TreeNode(string name)
+        public TreeNode(string name, string fullInfo)
         {
             Name = name;
+            FullInfo = fullInfo;
             Children = new List<TreeNode>();
+            Parent = null;
         }
+
         public void AddChild(TreeNode node)
         {
+            node.Parent = this;
             Children.Add(node);
         }
     }
-    public class  Tree
+
+    public class Tree
     {
         public TreeNode Root { get; set; }
         public Tree(string rootName)
         {
-            Root = new TreeNode(rootName);
+            Root = new TreeNode(rootName, rootName);
         }
 
         public void AddServiceRequest(ServiceRequest request)
@@ -140,7 +150,7 @@ namespace PROG7312_POE
             TreeNode locationNode = FindOrCreateNode(Root, request.Location);
             TreeNode categoryNode = FindOrCreateNode(locationNode, request.Category);
             TreeNode statusNode = FindOrCreateNode(categoryNode, request.Status);
-            statusNode.AddChild(new TreeNode(request.Id));
+            statusNode.AddChild(new TreeNode(request.Id, $"ID: {request.Id}, Location: {request.Location}, Category: {request.Category}, Status: {request.Status}"));
         }
 
         private TreeNode FindOrCreateNode(TreeNode parent, string nodeName)
@@ -152,11 +162,12 @@ namespace PROG7312_POE
                     return child;
                 }
             }
-            var newNode = new TreeNode(nodeName);
+            var newNode = new TreeNode(nodeName, parent.FullInfo + " -> " + nodeName);
             parent.AddChild(newNode);
             return newNode;
         }
     }
+
     public class ServiceRequest
     {
         public string Id { get; set; }

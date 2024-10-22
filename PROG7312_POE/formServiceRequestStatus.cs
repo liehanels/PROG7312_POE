@@ -48,6 +48,7 @@ namespace PROG7312_POE
             {
                 Text = "Add Request",
                 Dock = DockStyle.Top,
+                Height = 50
             };
             btnAddRequest.Click += btnAddRequest_Click;
             Controls.Add(btnAddRequest);

@@ -77,6 +77,12 @@
     <Compile Include="formReportIssue.Designer.cs">
       <DependentUpon>formReportIssue.cs</DependentUpon>
     </Compile>
+    <Compile Include="formServiceRequestStatus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="formServiceRequestStatus.Designer.cs">
+      <DependentUpon>formServiceRequestStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="formStartup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +124,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="formReportIssue.resx">
       <DependentUpon>formReportIssue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="formServiceRequestStatus.resx">
+      <DependentUpon>formServiceRequestStatus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="formStartup.resx">
       <DependentUpon>formStartup.cs</DependentUpon>

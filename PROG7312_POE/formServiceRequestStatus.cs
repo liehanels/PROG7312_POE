@@ -8,18 +8,25 @@ namespace PROG7312_POE
 {
     public partial class formServiceRequestStatus : Form
     {
+        Tree tree;
+        List<ServiceRequest> requests;
+        Panel panel;
         public formServiceRequestStatus()
         {
             InitializeComponent();
-            var tree = new Tree("Municipal Service Request");
-            var requests = new List<ServiceRequest>
+            tree = new Tree("Municipal Service Request");
+            requests = new List<ServiceRequest>
             {
                 new ServiceRequest { Id = "001", Location = "Downtown", Category = "Water", Status = "Pending" },
                 new ServiceRequest { Id = "002", Location = "City Center", Category = "Electricity", Status = "Completed" },
                 new ServiceRequest { Id = "003", Location = "City Center", Category = "Electricity", Status = "Declined" },
                 new ServiceRequest { Id = "004", Location = "Suburbs", Category = "Sanitation", Status = "In Progress" },
                 new ServiceRequest { Id = "005", Location = "Downtown", Category = "Sanitation", Status = "In Progress" },
-                new ServiceRequest { Id = "006", Location = "Downtown", Category = "Sanitation", Status = "In Progress" }
+                new ServiceRequest { Id = "006", Location = "Downtown", Category = "Sanitation", Status = "In Progress" },
+                new ServiceRequest { Id = "007", Location = "Outskirts", Category = "Crime", Status = "Pending" },
+                new ServiceRequest { Id = "008", Location = "Outskirts", Category = "Crime", Status = "Pending" },
+                new ServiceRequest { Id = "009", Location = "Outskirts", Category = "Crime", Status = "Pending" },
+                new ServiceRequest { Id = "010", Location = "Outskirts", Category = "Water", Status = "In Progress" }
             };
 
             foreach (var request in requests)
@@ -28,13 +35,38 @@ namespace PROG7312_POE
             }
 
             // Panel setup
-            var panel = new Panel
+            panel = new Panel
             {
                 Dock = DockStyle.Fill,
                 BackColor = Color.White
             };
             Controls.Add(panel);
             PaintTree(panel, tree.Root);
+
+            //Add button
+            var btnAddRequest = new Button
+            {
+                Text = "Add Request",
+                Dock = DockStyle.Top,
+            };
+            btnAddRequest.Click += btnAddRequest_Click;
+            Controls.Add(btnAddRequest);
+        }
+        private void btnAddRequest_Click(object sender, EventArgs e)
+        {
+            var (id, location, category, status) = Prompt.ShowDialog();
+            if (!string.IsNullOrWhiteSpace(id) && !string.IsNullOrWhiteSpace(location) && !string.IsNullOrWhiteSpace(category) && !string.IsNullOrWhiteSpace(status))
+            {
+                var newRequest = new ServiceRequest
+                {
+                    Id = id,
+                    Location = location,
+                    Category = category,
+                    Status = status
+                };
+                tree.AddServiceRequest(newRequest);
+                panel.Invalidate(); // Refresh the panel to show the new node
+            }
         }
 
         private void PaintTree(Panel panel, TreeNode root)
@@ -59,7 +91,7 @@ namespace PROG7312_POE
             const int radius = 20;
 
             // Define colors for different levels
-            Color[] colors = { Color.Cyan, Color.LightGreen, Color.LightCoral, Color.Gray };
+            Color[] colors = { Color.Cyan, Color.LightGreen, Color.LightCoral, Color.Gray, Color.Orange };
             Brush brush = new SolidBrush(colors[depth % colors.Length]);
 
             // Draw node
@@ -83,7 +115,7 @@ namespace PROG7312_POE
             const int offsetY = 120;
             const int radius = 20;
 
-            if (IsPointInCircle(e.X, e.Y, x, y, radius))
+            if (node.Children.Count == 0 && IsPointInCircle(e.X, e.Y, x, y, radius))
             {
                 DisplayNodeInformation(node);
                 return;
@@ -96,6 +128,7 @@ namespace PROG7312_POE
                 childX += offsetX;
             }
         }
+
 
         private void DisplayNodeInformation(TreeNode node)
         {
@@ -174,5 +207,46 @@ namespace PROG7312_POE
         public string Location { get; set; }
         public string Category { get; set; }
         public string Status { get; set; }
+    }
+    public static class Prompt
+    {
+        public static (string Id, string Location, string Category, string Status) ShowDialog()
+        {
+            Form prompt = new Form()
+            {
+                Width = 500,
+                Height = 250,
+                FormBorderStyle = FormBorderStyle.FixedDialog,
+                Text = "Add Service Request",
+                StartPosition = FormStartPosition.CenterScreen
+            };
+
+            Label lblId = new Label() { Left = 50, Top = 20, Text = "ID", AutoSize = true };
+            Label lblLocation = new Label() { Left = 50, Top = 60, Text = "Location", AutoSize = true };
+            Label lblCategory = new Label() { Left = 50, Top = 100, Text = "Category", AutoSize = true };
+            Label lblStatus = new Label() { Left = 50, Top = 140, Text = "Status", AutoSize = true };
+
+            TextBox txtId = new TextBox() { Left = 150, Top = 20, Width = 300 };
+            TextBox txtLocation = new TextBox() { Left = 150, Top = 60, Width = 300 };
+            TextBox txtCategory = new TextBox() { Left = 150, Top = 100, Width = 300 };
+            TextBox txtStatus = new TextBox() { Left = 150, Top = 140, Width = 300 };
+
+            Button confirmation = new Button() { Text = "Ok", Left = 350, Width = 100, Top = 180, DialogResult = DialogResult.OK };
+            confirmation.Click += (sender, e) => { prompt.Close(); };
+
+            prompt.Controls.Add(lblId);
+            prompt.Controls.Add(lblLocation);
+            prompt.Controls.Add(lblCategory);
+            prompt.Controls.Add(lblStatus);
+            prompt.Controls.Add(txtId);
+            prompt.Controls.Add(txtLocation);
+            prompt.Controls.Add(txtCategory);
+            prompt.Controls.Add(txtStatus);
+            prompt.Controls.Add(confirmation);
+
+            return prompt.ShowDialog() == DialogResult.OK ?
+                (txtId.Text, txtLocation.Text, txtCategory.Text, txtStatus.Text) :
+                (null, null, null, null);
+        }
     }
 }
